@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.1 Serialization_Base_Json", "Serialization_Base_Json\0.1 Serialization_Base_Json.csproj", "{90D5645E-2144-4909-834A-8FC43914AE02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization_Indentation_Json", "Serialization_Indentation_Json\Serialization_Indentation_Json.csproj", "{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{90D5645E-2144-4909-834A-8FC43914AE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90D5645E-2144-4909-834A-8FC43914AE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90D5645E-2144-4909-834A-8FC43914AE02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
