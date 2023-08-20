@@ -18,8 +18,14 @@ Console.WriteLine(jsonString);
 string fileName2 = "WeatherForecast.json";
 string jsonString2 = JsonSerializer.Serialize(weatherForecast);
 File.WriteAllText(fileName2, jsonString2);
-
 Console.WriteLine(File.ReadAllText(fileName2));
+
+//Асинхронная сериализация. С последующим закрытием неупровляймого обьекта с помощи DisposeAsync
+string fileName3 = "WeatherForecast.json";
+using FileStream createStream3 = File.Create(fileName3);
+await JsonSerializer.SerializeAsync(createStream3, weatherForecast);
+await createStream3.DisposeAsync();
+Console.WriteLine(File.ReadAllText(fileName3));
 
 Console.ReadLine();
 
