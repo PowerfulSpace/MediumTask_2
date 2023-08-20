@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5291D391
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{B18F8C10-0838-452D-B4D2-47F44B3B498E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.1 Serialization_Base_Json", "Serialization_Base_Json\0.1 Serialization_Base_Json.csproj", "{90D5645E-2144-4909-834A-8FC43914AE02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{B18F8C10-0838-452D-B4D2-47F44B3B498E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B18F8C10-0838-452D-B4D2-47F44B3B498E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B18F8C10-0838-452D-B4D2-47F44B3B498E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90D5645E-2144-4909-834A-8FC43914AE02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90D5645E-2144-4909-834A-8FC43914AE02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90D5645E-2144-4909-834A-8FC43914AE02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90D5645E-2144-4909-834A-8FC43914AE02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
