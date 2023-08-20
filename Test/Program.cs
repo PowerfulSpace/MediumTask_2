@@ -18,10 +18,10 @@ var weatherForecast = new WeatherForecast
     SummaryWords = new[] { "Cool", "Windy", "Humid" }
 };
 
-var options = new JsonSerializerOptions { WriteIndented = true };
-string jsonString = JsonSerializer.Serialize(weatherForecast, options);
+byte[] jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
+foreach (var item in jsonUtf8Bytes)
+    Console.Write(item + " ");
 
-Console.WriteLine(jsonString);
 
 Console.ReadLine();
 
