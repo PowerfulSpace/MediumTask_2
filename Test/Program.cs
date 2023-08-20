@@ -9,12 +9,9 @@ var weatherForecast = new WeatherForecast
     Summary = "Hot"
 };
 
-string fileName = "WeatherForecast.json";
-using FileStream createStream = File.Create(fileName);
-await JsonSerializer.SerializeAsync(createStream, weatherForecast);
-await createStream.DisposeAsync();
+string jsonString = JsonSerializer.Serialize<WeatherForecast>(weatherForecast);
 
-Console.WriteLine(File.ReadAllText(fileName));
+Console.WriteLine(jsonString);
 
 
 Console.ReadLine();

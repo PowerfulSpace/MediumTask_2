@@ -27,6 +27,11 @@ await JsonSerializer.SerializeAsync(createStream3, weatherForecast);
 await createStream3.DisposeAsync();
 Console.WriteLine(File.ReadAllText(fileName3));
 
+//Принимаем универсальный тип
+string jsonString4 = JsonSerializer.Serialize<WeatherForecast>(weatherForecast);
+Console.WriteLine(jsonString4);
+
+
 Console.ReadLine();
 
 
