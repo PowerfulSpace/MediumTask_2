@@ -2,6 +2,7 @@
 
 using System.Text.Json;
 
+
 var weatherForecast = new WeatherForecast
 {
     Date = DateTime.Parse("2019-08-01"),
@@ -9,11 +10,16 @@ var weatherForecast = new WeatherForecast
     Summary = "Hot"
 };
 
+//Обычная сериализация в переменную стринг
 string jsonString = JsonSerializer.Serialize(weatherForecast);
-
 Console.WriteLine(jsonString);
 
+//Сериализация в файл, после чтение файла
+string fileName2 = "WeatherForecast.json";
+string jsonString2 = JsonSerializer.Serialize(weatherForecast);
+File.WriteAllText(fileName2, jsonString2);
 
+Console.WriteLine(File.ReadAllText(fileName2));
 
 Console.ReadLine();
 
