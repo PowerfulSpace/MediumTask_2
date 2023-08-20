@@ -29,6 +29,18 @@ foreach (var item in jsonUtf8Bytes)
     Console.Write(item + " ");
 
 
+//Десериализация из байтов
+var readOnlySpan = new ReadOnlySpan<byte>(jsonUtf8Bytes);
+WeatherForecast deserializedWeatherForecast =
+    JsonSerializer.Deserialize<WeatherForecast>(readOnlySpan)!;
+
+//Десериализация из байтов
+var utf8Reader = new Utf8JsonReader(jsonUtf8Bytes);
+WeatherForecast deserializedWeatherForecast2 =
+    JsonSerializer.Deserialize<WeatherForecast>(ref utf8Reader)!;
+
+
+
 Console.ReadLine();
 
 
