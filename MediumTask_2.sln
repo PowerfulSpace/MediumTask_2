@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.1 Serialization_Base_Json", "Serialization_Base_Json\0.1 Serialization_Base_Json.csproj", "{90D5645E-2144-4909-834A-8FC43914AE02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.2 Serialization_Indentation_Json", "Serialization_Indentation_Json\0.2 Serialization_Indentation_Json.csproj", "{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.2 SerializationAndDeserialize_Indentation_Json", "Serialization_Indentation_Json\0.2 SerializationAndDeserialize_Indentation_Json.csproj", "{65348FE0-567D-4CAA-A294-FE2F8C2A9B8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.3 Deserialize_FromString_Json", "Deserialize_FromString_Json\0.3 Deserialize_FromString_Json.csproj", "{15B9CC4A-2860-4D60-A339-FC0D60E52DF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.3 SerializeAndDeserialize_FromFile_Json", "0.3 SerializeAndDeserialize_FromFile_Json\0.3 SerializeAndDeserialize_FromFile_Json.csproj", "{62D1DC2C-3859-4B42-A6CE-5D222991E69D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{15B9CC4A-2860-4D60-A339-FC0D60E52DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B9CC4A-2860-4D60-A339-FC0D60E52DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B9CC4A-2860-4D60-A339-FC0D60E52DF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62D1DC2C-3859-4B42-A6CE-5D222991E69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D1DC2C-3859-4B42-A6CE-5D222991E69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D1DC2C-3859-4B42-A6CE-5D222991E69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D1DC2C-3859-4B42-A6CE-5D222991E69D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

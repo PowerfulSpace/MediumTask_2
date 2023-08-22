@@ -1,55 +1,43 @@
 ﻿
 
-using System.Text.Json;
 
-var weatherForecast = new WeatherForecast
+var thread = new Thread(new ThreadStart(ThreadFunc));
+
+Console.WriteLine("ID Первичного потока: {0} \n", Thread.CurrentThread.GetHashCode());
+Console.WriteLine("Запуск нового потока...");
+
+thread.Start();
+Console.WriteLine(Thread.CurrentThread.GetHashCode());
+
+//thread.Join(); 
+
+Console.ForegroundColor = ConsoleColor.Green;
+
+for (int i = 0; i < 160; i++)
 {
-    Date = DateTime.Parse("2019-08-01"),
-    TemperatureCelsius = 25,
-    Summary = "Hot",
-    SummaryField = "Hot",
-    DatesAvailable = new List<DateTimeOffset>()
-                    { DateTime.Parse("2019-08-01"), DateTime.Parse("2019-08-02") },
-    TemperatureRanges = new Dictionary<string, HighLowTemps>
-    {
-        ["Cold"] = new HighLowTemps { High = 20, Low = -10 },
-        ["Hot"] = new HighLowTemps { High = 60, Low = 20 }
-    },
-    SummaryWords = new[] { "Cool", "Windy", "Humid" }
-};
+    Thread.Sleep(20);
+    Console.Write("-");
+}
 
+Console.ForegroundColor = ConsoleColor.Gray;
 
-byte[] jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(weatherForecast);
-foreach (var item in jsonUtf8Bytes)
-    Console.Write(item + " ");
+Console.WriteLine("\nПервичный поток завершился.");
 
-
-
-
-var readOnlySpan = new ReadOnlySpan<byte>(jsonUtf8Bytes);
-WeatherForecast deserializedWeatherForecast =
-    JsonSerializer.Deserialize<WeatherForecast>(readOnlySpan)!;
-
-var utf8Reader = new Utf8JsonReader(jsonUtf8Bytes);
-WeatherForecast deserializedWeatherForecast2 =
-    JsonSerializer.Deserialize<WeatherForecast>(ref utf8Reader)!;
 
 Console.ReadLine();
 
 
-public class WeatherForecast
+static void ThreadFunc() 
 {
-    public DateTimeOffset Date { get; set; }
-    public int TemperatureCelsius { get; set; }
-    public string? Summary { get; set; }
-    public string? SummaryField;
-    public IList<DateTimeOffset>? DatesAvailable { get; set; }
-    public Dictionary<string, HighLowTemps>? TemperatureRanges { get; set; }
-    public string[]? SummaryWords { get; set; }
-}
+    Console.WriteLine("ID Вторичного потока: {0}", Thread.CurrentThread.ManagedThreadId);
+    Console.ForegroundColor = ConsoleColor.Yellow;
 
-public class HighLowTemps
-{
-    public int High { get; set; }
-    public int Low { get; set; }
+    for (int i = 0; i < 160; i++)
+    {
+        Thread.Sleep(20);
+        Console.Write(".");
+    }
+
+    Console.ForegroundColor = ConsoleColor.Gray;
+    Console.WriteLine("Вторичный поток завершился.");
 }
