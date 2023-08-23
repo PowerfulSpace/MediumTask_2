@@ -16,7 +16,7 @@
         //false - (true - вызвать callback метод один раз. false - вызывать Callback метод с интервалом)
 
         Console.WriteLine("S - сигнал, Q - выход");
-         
+
         while (true)
         {
             string operation = Console.ReadKey(true).KeyChar.ToString().ToUpper();
