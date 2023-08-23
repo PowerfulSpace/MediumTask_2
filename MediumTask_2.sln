@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0.3 SerializeAndDeserialize
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0.4 Working_lock", "Working_lock\0.4 Working_lock.csproj", "{4398A51E-B92F-46E5-ACF7-BE6BCB5BD2C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.5 Working_Mutex", "Working_Mutex\0.5 Working_Mutex.csproj", "{4F5CF417-3FFB-4E94-AF39-F0EB3DAAB58E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{4398A51E-B92F-46E5-ACF7-BE6BCB5BD2C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4398A51E-B92F-46E5-ACF7-BE6BCB5BD2C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4398A51E-B92F-46E5-ACF7-BE6BCB5BD2C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5CF417-3FFB-4E94-AF39-F0EB3DAAB58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5CF417-3FFB-4E94-AF39-F0EB3DAAB58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5CF417-3FFB-4E94-AF39-F0EB3DAAB58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5CF417-3FFB-4E94-AF39-F0EB3DAAB58E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
