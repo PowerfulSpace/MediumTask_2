@@ -1,6 +1,7 @@
 ﻿class Program
 {
-
+    //Если не задать имея для Mutex, тогда каждый запускаемая программа будет создовать свой собственный Mutex
+    //в нашем случае с имеющимся именем у mutex. Будет работать 1 для всех
     private static readonly Mutex Mutex1 = new Mutex(false, "MutexSample:AAED7056-380D-412E-9608-763495211EA8");
 
     static void Main()
