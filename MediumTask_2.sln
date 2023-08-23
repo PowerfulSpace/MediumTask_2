@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.0 Working_ManualResetEven
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1 Working_ RegisterWaitForSingleObject_Timer", "Working_ RegisterWaitForSingleObject_Timer\1.1 Working_ RegisterWaitForSingleObject_Timer.csproj", "{B781E45E-793F-445B-866C-A294C814275C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.2 Working_ RegisterWaitForSingleObject_Timer_2", "Working_ RegisterWaitForSingleObject_Timer_2\1.2 Working_ RegisterWaitForSingleObject_Timer_2.csproj", "{62294655-5D14-43C3-A239-548F8613C232}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,10 @@ Global
 		{B781E45E-793F-445B-866C-A294C814275C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B781E45E-793F-445B-866C-A294C814275C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B781E45E-793F-445B-866C-A294C814275C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62294655-5D14-43C3-A239-548F8613C232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62294655-5D14-43C3-A239-548F8613C232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62294655-5D14-43C3-A239-548F8613C232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62294655-5D14-43C3-A239-548F8613C232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
