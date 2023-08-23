@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0.9 Working_AutoResetEvent_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.0 Working_ManualResetEvent", "Working_ManualResetEvent\1.0 Working_ManualResetEvent.csproj", "{19274DFE-5BBA-4B24-9F85-E720579B8C2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.1 Working_ RegisterWaitForSingleObject_Timer", "Working_ RegisterWaitForSingleObject_Timer\1.1 Working_ RegisterWaitForSingleObject_Timer.csproj", "{B781E45E-793F-445B-866C-A294C814275C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{19274DFE-5BBA-4B24-9F85-E720579B8C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19274DFE-5BBA-4B24-9F85-E720579B8C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19274DFE-5BBA-4B24-9F85-E720579B8C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B781E45E-793F-445B-866C-A294C814275C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B781E45E-793F-445B-866C-A294C814275C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B781E45E-793F-445B-866C-A294C814275C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B781E45E-793F-445B-866C-A294C814275C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
