@@ -23,10 +23,10 @@
             auto.WaitOne();
             ShowColor("Зеленый", ConsoleColor.Green);
             auto.WaitOne();
-        }    
+        }
     }
 
-    static void ShowColor(string colorString,ConsoleColor color)
+    static void ShowColor(string colorString, ConsoleColor color)
     {
         Console.ForegroundColor = color;
         Console.WriteLine(colorString);
