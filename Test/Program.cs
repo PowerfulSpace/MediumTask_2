@@ -11,6 +11,7 @@ for (int i = 0; i < 80; i++)
     Thread.Sleep(50);
     Console.Write(".");
 }
+
 Console.ReadKey();
 
 
