@@ -1,27 +1,33 @@
 ﻿
-//Создайте приложение, которое может быть запущено только в одном экземпляре (используя именованный Mutex). 
+Console.WriteLine("Первичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
 
+var myDelegate = new Action(Method);
 
-public class Program
+myDelegate.BeginInvoke(null, null);
+Console.WriteLine("Main");
+
+for (int i = 0; i < 80; i++)
 {
-    public static bool flag;
-  
-    public static void Main()
-    {
-        Thread thread = new Thread(Function);
-        thread.Start();
-        Thread.Sleep(1000);
-        flag = true;
-
-        Console.WriteLine("-----------");
-        Console.ReadKey();
-    }
-    
-    static void Function()
-    {
-        while (!flag)
-        {
-            Console.WriteLine("Function");
-        } 
-    }
+    Thread.Sleep(50);
+    Console.Write(".");
 }
+Console.ReadKey();
+
+
+
+static void Method()
+{
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("\nАсинхронный метод запущен.");
+    Console.WriteLine("\nВторичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
+
+    for (int i = 0; i < 80; i++)
+    {
+        Thread.Sleep(60);
+        Console.Write("A");
+    }
+
+    Console.WriteLine("Асинхронная операция завершена.\n");
+    Console.ForegroundColor = ConsoleColor.Gray;
+}
+
