@@ -2,35 +2,20 @@
 {
     static void Main()
     {
-        Console.WriteLine("Первичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
+        var myDelegate = new Func<int, int, int>(Add);
 
-        var myDelegate = new Action(Method);
+        IAsyncResult asyncResult = myDelegate.BeginInvoke(1, 2, null, null);
 
+        int result = myDelegate.EndInvoke(asyncResult);
 
-        IAsyncResult asyncResult = myDelegate.BeginInvoke(null, null);
-
-        Console.WriteLine("Первичный поток продолжает работать.");
-
-        myDelegate.EndInvoke(asyncResult);
-
-        Console.WriteLine("Первичный поток завершил работу.");
+        Console.WriteLine("Результат = " + result);
 
         Console.ReadKey();
     }
 
-    static void Method()
+    static int Add(int a, int b)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("\nАсинхронный метод запущен.");
-        Console.WriteLine("\nВторичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
-
-        for (int i = 0; i < 80; i++)
-        {
-            Thread.Sleep(50);
-            Console.Write(".");
-        }
-
-        Console.WriteLine("Асинхронная операция завершена.\n");
-        Console.ForegroundColor = ConsoleColor.Gray;
+        Thread.Sleep(2000);
+        return a + b;
     }
 }
