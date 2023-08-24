@@ -1,34 +1,36 @@
-﻿
-Console.WriteLine("Первичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
-
-var myDelegate = new Action(Method);
-
-myDelegate.BeginInvoke(null, null);
-Console.WriteLine("Main");
-
-for (int i = 0; i < 80; i++)
+﻿class Program
 {
-    Thread.Sleep(50);
-    Console.Write(".");
-}
-
-Console.ReadKey();
-
-
-
-static void Method()
-{
-    Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine("\nАсинхронный метод запущен.");
-    Console.WriteLine("\nВторичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
-
-    for (int i = 0; i < 80; i++)
+    static void Main()
     {
-        Thread.Sleep(60);
-        Console.Write("A");
+        Console.WriteLine("Первичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
+
+        var myDelegate = new Action(Method);
+
+
+        IAsyncResult asyncResult = myDelegate.BeginInvoke(null, null);
+
+        Console.WriteLine("Первичный поток продолжает работать.");
+
+        myDelegate.EndInvoke(asyncResult);
+
+        Console.WriteLine("Первичный поток завершил работу.");
+
+        Console.ReadKey();
     }
 
-    Console.WriteLine("Асинхронная операция завершена.\n");
-    Console.ForegroundColor = ConsoleColor.Gray;
-}
+    static void Method()
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("\nАсинхронный метод запущен.");
+        Console.WriteLine("\nВторичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
 
+        for (int i = 0; i < 80; i++)
+        {
+            Thread.Sleep(50);
+            Console.Write(".");
+        }
+
+        Console.WriteLine("Асинхронная операция завершена.\n");
+        Console.ForegroundColor = ConsoleColor.Gray;
+    }
+}
