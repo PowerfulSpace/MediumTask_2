@@ -1,31 +1,118 @@
-﻿
+﻿using System.Diagnostics.Metrics;
 
-
-var streamRecording = new FileStream(@"D:\Testing\Test.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-byte[] arrayRecording = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
-streamRecording.BeginWrite(arrayRecording, 0, arrayRecording.Length, new AsyncCallback(CleanUp), streamRecording);
-
-
-var stream = new FileStream(@"D:\Testing\Test.txt", FileMode.Open, FileAccess.Read);
-var array = new byte[stream.Length];
-IAsyncResult asyncResult = stream.BeginRead(array, 0, array.Length, null, null);
-
-Console.WriteLine("Чтение файла ...");
-stream.EndRead(asyncResult);
-
-foreach (byte item in array)
-    Console.Write(item + " ");
-
-stream.Close();
-
-Console.ReadKey();
-
-
-static void CleanUp(IAsyncResult asyncResult)
+public class DataSamples
 {
-    Console.WriteLine("Файл записан.");
-    var stream = asyncResult.AsyncState as FileStream;
+    private class Page
+    {
+        private readonly List<Measurements> pageData = new List<Measurements>();
+        private readonly int startingIndex;
+        private readonly int length;
+        private bool dirty;
+        private DateTime lastAccess;
 
-    if (stream != null)
-        stream.Close();
+        public Page(int startingIndex, int length)
+        {
+            this.startingIndex = startingIndex;
+            this.length = length;
+            lastAccess = DateTime.Now;
+
+            // This stays as random stuff:
+            var generator = new Random();
+            for (int i = 0; i < length; i++)
+            {
+                var m = new Measurements
+                {
+                    HiTemp = generator.Next(50, 95),
+                    LoTemp = generator.Next(12, 49),
+                    AirPressure = 28.0 + generator.NextDouble() * 4
+                };
+                pageData.Add(m);
+            }
+        }
+        public bool HasItem(int index) =>
+            ((index >= startingIndex) &&
+            (index < startingIndex + length));
+
+        public Measurements this[int index]
+        {
+            get
+            {
+                lastAccess = DateTime.Now;
+                return pageData[index - startingIndex];
+            }
+            set
+            {
+                pageData[index - startingIndex] = value;
+                dirty = true;
+                lastAccess = DateTime.Now;
+            }
+        }
+
+        public bool Dirty => dirty;
+        public DateTime LastAccess => lastAccess;
+    }
+
+    private readonly int totalSize;
+    private readonly List<Page> pagesInMemory = new List<Page>();
+
+    public DataSamples(int totalSize)
+    {
+        this.totalSize = totalSize;
+    }
+
+    public Measurements this[int index]
+    {
+        get
+        {
+            if (index < 0)
+                throw new IndexOutOfRangeException("Cannot index less than 0");
+            if (index >= totalSize)
+                throw new IndexOutOfRangeException("Cannot index past the end of storage");
+
+            var page = updateCachedPagesForAccess(index);
+            return page[index];
+        }
+        set
+        {
+            if (index < 0)
+                throw new IndexOutOfRangeException("Cannot index less than 0");
+            if (index >= totalSize)
+                throw new IndexOutOfRangeException("Cannot index past the end of storage");
+            var page = updateCachedPagesForAccess(index);
+
+            page[index] = value;
+        }
+    }
+
+    private Page updateCachedPagesForAccess(int index)
+    {
+        foreach (var p in pagesInMemory)
+        {
+            if (p.HasItem(index))
+            {
+                return p;
+            }
+        }
+        var startingIndex = (index / 1000) * 1000;
+        var newPage = new Page(startingIndex, 1000);
+        addPageToCache(newPage);
+        return newPage;
+    }
+
+    private void addPageToCache(Page p)
+    {
+        if (pagesInMemory.Count > 4)
+        {
+            // remove oldest non-dirty page:
+            var oldest = pagesInMemory
+                .Where(page => !page.Dirty)
+                .OrderBy(page => page.LastAccess)
+                .FirstOrDefault();
+            // Note that this may keep more than 5 pages in memory
+            // if too much is dirty
+            if (oldest != null)
+                pagesInMemory.Remove(oldest);
+        }
+        pagesInMemory.Add(p);
+    }
 }
