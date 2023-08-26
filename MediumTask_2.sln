@@ -41,9 +41,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.5 WorkingWithAFileAsynchr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.6 Working_Task_Base", "Working_Task_Base\1.6 Working_Task_Base.csproj", "{D0963349-6921-46AE-BD2A-B688BF696B82}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_ContinueWith", "Task_ContinueWith\Task_ContinueWith.csproj", "{7094730D-A619-4FBC-94E2-D945DF4F5F37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.7 Task_ContinueWith", "Task_ContinueWith\1.7 Task_ContinueWith.csproj", "{7094730D-A619-4FBC-94E2-D945DF4F5F37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_CancellationToken_Base", "Working_CancellationToken_Base\Working_CancellationToken_Base.csproj", "{5324938F-6129-46CE-8D3D-B713486ABE34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.8 Working_CancellationToken_Base", "Working_CancellationToken_Base\1.8 Working_CancellationToken_Base.csproj", "{5324938F-6129-46CE-8D3D-B713486ABE34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_Parallel_Base", "Working_Parallel_Base\Working_Parallel_Base.csproj", "{DFE05863-C9DF-432C-A5E3-7F734B9B8597}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +133,10 @@ Global
 		{5324938F-6129-46CE-8D3D-B713486ABE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5324938F-6129-46CE-8D3D-B713486ABE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5324938F-6129-46CE-8D3D-B713486ABE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFE05863-C9DF-432C-A5E3-7F734B9B8597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFE05863-C9DF-432C-A5E3-7F734B9B8597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFE05863-C9DF-432C-A5E3-7F734B9B8597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFE05863-C9DF-432C-A5E3-7F734B9B8597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
