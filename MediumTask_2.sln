@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.3 Working_EventWaitHandle
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.4 GettingADelegateInstance", "GettingADelegateInstance\1.4 GettingADelegateInstance.csproj", "{6F18A31A-323B-4A7B-954E-AE6AF6289936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.5 WorkingWithAFileAsynchronously", "WorkingWithAFileAsynchronously\1.5 WorkingWithAFileAsynchronously.csproj", "{A307CDB9-80AE-4F70-9F6C-8FEEFDECA088}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.5 WorkingWithAFileAsynchronously", "WorkingWithAFileAsynchronously\1.5 WorkingWithAFileAsynchronously.csproj", "{A307CDB9-80AE-4F70-9F6C-8FEEFDECA088}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_Task_Base", "Working_Task_Base\Working_Task_Base.csproj", "{D0963349-6921-46AE-BD2A-B688BF696B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +115,10 @@ Global
 		{A307CDB9-80AE-4F70-9F6C-8FEEFDECA088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A307CDB9-80AE-4F70-9F6C-8FEEFDECA088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A307CDB9-80AE-4F70-9F6C-8FEEFDECA088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0963349-6921-46AE-BD2A-B688BF696B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0963349-6921-46AE-BD2A-B688BF696B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0963349-6921-46AE-BD2A-B688BF696B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0963349-6921-46AE-BD2A-B688BF696B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
