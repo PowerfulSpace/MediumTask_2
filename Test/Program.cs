@@ -2,18 +2,12 @@
 {
     static int[] data;
 
-    static void MyTransform(int i, ParallelLoopState state)
+    static void DisplayData(int v, ParallelLoopState state)
     {
-        if (data[i] < 0)
+        if (v < 0)
             state.Break();
 
-        data[i] = data[i] / 10;
-
-        if (data[i] < 10000) data[i] = 0;
-        if (data[i] > 10000 && data[i] < 20000) data[i] = 100;
-        if (data[i] > 20000 && data[i] < 30000) data[i] = 200;
-        if (data[i] > 30000) data[i] = 300;
-        Console.WriteLine(i);
+        Console.WriteLine("Значение: " + v);
     }
 
     static void Main()
@@ -27,7 +21,7 @@
 
         data[1000] = -10;
 
-        ParallelLoopResult loopResult = Parallel.For(0, data.Length, MyTransform);
+        ParallelLoopResult loopResult = Parallel.ForEach(data, DisplayData);
 
         if (!loopResult.IsCompleted)
             Console.WriteLine("\nЦикл завершился преждевременно." +
