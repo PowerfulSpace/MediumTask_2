@@ -2,22 +2,21 @@
 {
     static void Main()
     {
-        var data = new int[10000000];
+        int[] data = new int[10000000];
 
-        for (int i = 0; i < data.Length; i++)
-            data[i] = i;
+        for (int i = 0; i < data.Length; i++) data[i] = i;
 
-        data[1000] = -100;
+        data[1000] = -1;
         data[14000] = -2;
         data[15000] = -3;
         data[676000] = -4;
         data[8024540] = -5;
         data[9908000] = -6;
 
-        // Запрос PLINQ для поиска отрицательных значений.
-        var negatives = from val in data.AsParallel() // ParallelEnumerable.AsParallel<int>(data)
-                        where val < 0
-                        select val;
+        // Запрос PLINQ для поиска отрицательных значений с использованием метода AsOrdered() 
+        // для сохранения порядка в результирующей последовательности.
+        var negatives = data.AsParallel().AsOrdered().
+                            Where(val => val < 0);
 
         foreach (var v in negatives)
             Console.Write(v + " ");
