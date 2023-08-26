@@ -49,7 +49,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.9 Working_Parallel_Base",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.0 Working_ParallelFor_And_Stopwatch", "Working_ParallelFor_And_Stopwatch\2.0 Working_ParallelFor_And_Stopwatch.csproj", "{7586925A-56E4-4F61-BE71-FCAB29CA21C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_ParallelLoopState", "Working_ParallelLoopState\Working_ParallelLoopState.csproj", "{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1 Working_ParallelLoopState", "Working_ParallelLoopState\2.1 Working_ParallelLoopState.csproj", "{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_Parallel_LINQ_AsParallel", "Working_Parallel_LINQ_AsParallel\Working_Parallel_LINQ_AsParallel.csproj", "{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,10 @@ Global
 		{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
