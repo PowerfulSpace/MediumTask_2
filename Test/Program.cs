@@ -1,33 +1,26 @@
 ﻿class Program
 {
-    static int[] data;
-
-    static void DisplayData(int v, ParallelLoopState state)
-    {
-        if (v < 0)
-            state.Break();
-
-        Console.WriteLine("Значение: " + v);
-    }
-
     static void Main()
     {
-        Console.WriteLine("Основной поток запущен.");
-
-        data = new int[100000000];
+        var data = new int[10000000];
 
         for (int i = 0; i < data.Length; i++)
             data[i] = i;
 
-        data[1000] = -10;
+        data[1000] = -100;
+        data[14000] = -2;
+        data[15000] = -3;
+        data[676000] = -4;
+        data[8024540] = -5;
+        data[9908000] = -6;
 
-        ParallelLoopResult loopResult = Parallel.ForEach(data, DisplayData);
+        // Запрос PLINQ для поиска отрицательных значений.
+        var negatives = from val in data.AsParallel() // ParallelEnumerable.AsParallel<int>(data)
+                        where val < 0
+                        select val;
 
-        if (!loopResult.IsCompleted)
-            Console.WriteLine("\nЦикл завершился преждевременно." +
-                " На шаге {0} обнаружено отрицательное значение.\n", loopResult.LowestBreakIteration);
-
-        Console.WriteLine("Основной поток завершен.");
+        foreach (var v in negatives)
+            Console.Write(v + " ");
 
         Console.ReadKey();
     }
