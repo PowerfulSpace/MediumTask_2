@@ -7,8 +7,10 @@ var action = new Action(MyTask);
 
 var task = new Task(action);
 
-task.Start();
-//task.Wait();
+task.Start();    //- выполнение задачи асинхронно
+//task.Wait();   //- ожидать завершение асинхронно вызванной задачи
+
+//task.RunSynchronously(); - выполнение задачи синхронно
 for (int i = 0; i < 60; i++)
 {
     Console.Write(".");

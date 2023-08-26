@@ -9,6 +9,7 @@ var task = new Task(action);
 
 task.Start();
 //task.Wait();
+//task.RunSynchronously();
 for (int i = 0; i < 60; i++)
 {
     Console.Write(".");

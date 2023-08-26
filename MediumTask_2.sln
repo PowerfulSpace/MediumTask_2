@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.4 GettingADelegateInstanc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.5 WorkingWithAFileAsynchronously", "WorkingWithAFileAsynchronously\1.5 WorkingWithAFileAsynchronously.csproj", "{A307CDB9-80AE-4F70-9F6C-8FEEFDECA088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_Task_Base", "Working_Task_Base\Working_Task_Base.csproj", "{D0963349-6921-46AE-BD2A-B688BF696B82}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.6 Working_Task_Base", "Working_Task_Base\1.6 Working_Task_Base.csproj", "{D0963349-6921-46AE-BD2A-B688BF696B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
