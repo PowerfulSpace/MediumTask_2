@@ -45,13 +45,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.7 Task_ContinueWith", "Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.8 Working_CancellationToken_Base", "Working_CancellationToken_Base\1.8 Working_CancellationToken_Base.csproj", "{5324938F-6129-46CE-8D3D-B713486ABE34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.9 Working_Parallel_Base", "Working_Parallel_Base\1.9 Working_Parallel_Base.csproj", "{DFE05863-C9DF-432C-A5E3-7F734B9B8597}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.9 Working_Parallel_Base", "Working_Parallel_Base\1.9 Working_Parallel_Base.csproj", "{DFE05863-C9DF-432C-A5E3-7F734B9B8597}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.0 Working_ParallelFor_And_Stopwatch", "Working_ParallelFor_And_Stopwatch\2.0 Working_ParallelFor_And_Stopwatch.csproj", "{7586925A-56E4-4F61-BE71-FCAB29CA21C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.0 Working_ParallelFor_And_Stopwatch", "Working_ParallelFor_And_Stopwatch\2.0 Working_ParallelFor_And_Stopwatch.csproj", "{7586925A-56E4-4F61-BE71-FCAB29CA21C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1 Working_ParallelLoopState", "Working_ParallelLoopState\2.1 Working_ParallelLoopState.csproj", "{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1 Working_ParallelLoopState", "Working_ParallelLoopState\2.1 Working_ParallelLoopState.csproj", "{1DFAC9CE-5F6D-4B43-A5BE-E036B34F867B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2 Working_Parallel_LINQ_AsParallel", "Working_Parallel_LINQ_AsParallel\2.2 Working_Parallel_LINQ_AsParallel.csproj", "{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2 Working_Parallel_LINQ_AsParallel", "Working_Parallel_LINQ_AsParallel\2.2 Working_Parallel_LINQ_AsParallel.csproj", "{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Working_FlyWeight_Test", "Working_FlyWeight_Test\Working_FlyWeight_Test.csproj", "{FAD141E7-BEC6-4F3B-B7F0-2F3F18738C68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -155,6 +157,10 @@ Global
 		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED9F62D4-5FFD-450A-9013-75D30FB3D66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD141E7-BEC6-4F3B-B7F0-2F3F18738C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD141E7-BEC6-4F3B-B7F0-2F3F18738C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD141E7-BEC6-4F3B-B7F0-2F3F18738C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD141E7-BEC6-4F3B-B7F0-2F3F18738C68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
