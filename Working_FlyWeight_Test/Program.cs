@@ -7,7 +7,7 @@ for (int i = 0; i < array.Length; i++)
 {
     //array[i] = new string('-', (int)Math.Pow(1024, 2));
     //array[i] = string.Intern(new string('-', (int)Math.Pow(1024, 2)));
-    array[i] = string.Intern(new string('-', (int)Math.Pow(1024, 2)).ToString());
+    array[i] = string.Intern(new string('-', (int)Math.Pow(1024, 2)) + i.ToString());
 
 
 
