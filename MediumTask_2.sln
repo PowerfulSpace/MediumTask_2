@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2 Working_Parallel_LINQ_A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.3 Working_FlyWeight_Test", "Working_FlyWeight_Test\2.3 Working_FlyWeight_Test.csproj", "{FAD141E7-BEC6-4F3B-B7F0-2F3F18738C68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hash_MD5", "Hash_MD5\Hash_MD5.csproj", "{93B22E5C-8038-4D29-9CC1-FEBE06425103}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.4 Hash_MD5_SHA256", "Hash_MD5\2.4 Hash_MD5_SHA256.csproj", "{93B22E5C-8038-4D29-9CC1-FEBE06425103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
