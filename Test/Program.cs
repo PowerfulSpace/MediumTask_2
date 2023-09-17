@@ -1,23 +1,18 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net.Sockets;
 
-HttpClient httpClient = new HttpClient();
+var port = 80;
+var url = "www.google.com";
 
-
-// отправляемый объект 
-Person tom = new Person { Name = "Tom", Age = 38 };
-// создаем JsonContent
-JsonContent content = JsonContent.Create(tom);
-// отправляем запрос
-using var response = await httpClient.PostAsync("https://localhost:7094/create", content);
-Person? person = await response.Content.ReadFromJsonAsync<Person>();
-Console.WriteLine($"{person?.Id} - {person?.Name}");
-
+using var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+try
+{
+    // пытаемся подключиться используя URL-адрес и порт
+    await socket.ConnectAsync(url, port);
+    Console.WriteLine($"Подключение к {url} установлено");
+}
+catch (SocketException)
+{
+    Console.WriteLine($"Не удалось установить подключение к {url}");
+}
 Console.ReadLine();
 
-
-class Person
-{
-    public string Id { get; set; } = "";
-    public string Name { get; set; } = "";
-    public int Age { get; set; }
-}
