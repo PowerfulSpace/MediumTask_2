@@ -1,18 +1,93 @@
-﻿using System.Net.Sockets;
+﻿using System.Collections;
+using System.Net.Sockets;
 
-var port = 80;
-var url = "www.google.com";
+NodeStack<string> stack = new NodeStack<string>();
+stack.Push("Tom");
+stack.Push("Alice");
+stack.Push("Bob");
+stack.Push("Kate");
 
-using var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-try
+foreach (var item in stack)
 {
-    // пытаемся подключиться используя URL-адрес и порт
-    await socket.ConnectAsync(url, port);
-    Console.WriteLine($"Подключение к {url} установлено");
+    Console.WriteLine(item);
 }
-catch (SocketException)
+Console.WriteLine();
+string header = stack.Peek();
+Console.WriteLine($"Верхушка стека: {header}");
+Console.WriteLine();
+
+header = stack.Pop();
+foreach (var item in stack)
 {
-    Console.WriteLine($"Не удалось установить подключение к {url}");
+    Console.WriteLine(item);
 }
 Console.ReadLine();
 
+public class Node<T>
+{
+    public Node(T data)
+    {
+        Data = data;
+    }
+    public T Data { get; set; }
+    public Node<T> Next { get; set; }
+}
+public class NodeStack<T> : IEnumerable<T>
+{
+    Node<T> head;
+    int count;
+
+    public bool IsEmpty
+    {
+        get { return count == 0; }
+    }
+    public int Count
+    {
+        get { return count; }
+    }
+
+    public void Push(T item)
+    {
+        // увеличиваем стек
+        Node<T> node = new Node<T>(item);
+        node.Next = head; // переустанавливаем верхушку стека на новый элемент
+        head = node;
+        count++;
+    }
+    public T Pop()
+    {
+        // если стек пуст, выбрасываем исключение
+        if (IsEmpty)
+            throw new InvalidOperationException("Стек пуст");
+        Node<T> temp = head;
+        head = head.Next; // переустанавливаем верхушку стека на следующий элемент
+        count--;
+        return temp.Data;
+    }
+    public T Peek()
+    {
+        if (IsEmpty)
+            throw new InvalidOperationException("Стек пуст");
+        return head.Data;
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return ((IEnumerable)this).GetEnumerator();
+    }
+
+    IEnumerator<T> IEnumerable<T>.GetEnumerator()
+    {
+        Node<T> current = head;
+        while (current != null)
+        {
+            yield return current.Data;
+            current = current.Next;
+        }
+    }
+
+    public System.Collections.IEnumerator GetEnumerator()
+    {
+        throw new NotImplementedException();
+    }
+}
