@@ -1,14 +1,14 @@
-﻿using System.Text;
+﻿
 
-
-
-static string VlcTrackInfo(int id, string name)
+int[] numbers = { -4, -3, -2, -1, 0, 1, 2, 3, 4 };
+int result = 0;
+foreach (int number in numbers)
 {
-    var _id = id;
-
-    Encoding utf8 = Encoding.UTF8;
-    Encoding utf32 = Encoding.GetEncoding("UTF-32LE");
-    byte[] text = Encoding.Convert(utf8, utf32, utf8.GetBytes(name));
-    var _name = utf32.GetString(text);
-    return _name;
+    if (number > 0)
+    {
+        result++;
+    }
 }
+Console.WriteLine($"Число элементов больше нуля: {result}");
+
+Console.ReadLine();
