@@ -1,27 +1,27 @@
 ﻿
+Type myType = typeof(Person);
 
-int[] nums = { 54, 7, -41, 2, 4, 2, 89, 33, -5, 12 };
-
-// сортировка
-int temp;
-for (int i = 0; i < nums.Length - 1; i++)
+Console.WriteLine("Реализованные интерфейсы:");
+foreach (Type i in myType.GetInterfaces())
 {
-    for (int j = i + 1; j < nums.Length; j++)
-    {
-        if (nums[i] > nums[j])
-        {
-            temp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = temp;
-        }
-    }
-}
-
-// вывод
-Console.WriteLine("Вывод отсортированного массива");
-for (int i = 0; i < nums.Length; i++)
-{
-    Console.WriteLine(nums[i]);
+    Console.WriteLine(i.Name);
 }
 
 Console.ReadLine();
+
+public class Person : IEater, IMovable
+{
+    public string Name { get; }
+    public Person(string name) => Name = name;
+    public void Eat() => Console.WriteLine($"{Name} eats");
+
+    public void Move() => Console.WriteLine($"{Name} moves");
+}
+interface IEater
+{
+    void Eat();
+}
+interface IMovable
+{
+    void Move();
+}
