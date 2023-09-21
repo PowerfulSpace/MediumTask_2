@@ -1,7 +1,5 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
-
-
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 var services = new ServiceCollection()
     .AddTransient<ICounter, RandomCounter>();
@@ -13,7 +11,7 @@ PrintCounters();
 
 
 
-using System;
+
 
 void PrintCounters()
 {
