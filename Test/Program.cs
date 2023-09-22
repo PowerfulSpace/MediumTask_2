@@ -1,14 +1,8 @@
 ﻿
 
-int x = 0;
-Mutex mutexObj = new();
-
-// запускаем пять потоков
 for (int i = 1; i < 6; i++)
 {
-    Thread myThread = new(Print);
-    myThread.Name = $"Поток {i}";
-    myThread.Start();
+    Reader reader = new Reader(i);
 }
 
 
@@ -16,18 +10,39 @@ Console.ReadLine();
 
 
 
-
-void Print()
+class Reader
 {
-    mutexObj.WaitOne();     // приостанавливаем поток до получения мьютекса
-    x = 1;
-    for (int i = 1; i < 6; i++)
+    // создаем семафор
+    static Semaphore sem = new Semaphore(3, 3);
+    Thread myThread;
+    int count = 3;// счетчик чтения
+
+    public Reader(int i)
     {
-        Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
-        x++;
-        Thread.Sleep(100);
+        myThread = new Thread(Read);
+        myThread.Name = $"Читатель {i}";
+        myThread.Start();
     }
-    mutexObj.ReleaseMutex();    // освобождаем мьютекс
+
+    public void Read()
+    {
+        while (count > 0)
+        {
+            sem.WaitOne();  // ожидаем, когда освободиться место
+
+            Console.WriteLine($"{Thread.CurrentThread.Name} входит в библиотеку");
+
+            Console.WriteLine($"{Thread.CurrentThread.Name} читает");
+            Thread.Sleep(1000);
+
+            Console.WriteLine($"{Thread.CurrentThread.Name} покидает библиотеку");
+
+            sem.Release();  // освобождаем место
+
+            count--;
+            Thread.Sleep(1000);
+        }
+    }
 }
 
 
