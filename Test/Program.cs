@@ -1,13 +1,14 @@
 ﻿
 
+int x = 0;
+object locker = new(); 
 
-var s = new S();
-using (s)
+for (int i = 1; i < 6; i++)
 {
-    Console.WriteLine(s.GetDispose());
+    Thread myThread = new(Print);
+    myThread.Name = $"Поток {i}";
+    myThread.Start();
 }
-
-Console.WriteLine(s.GetDispose());
 
 
 
@@ -16,19 +17,19 @@ Console.ReadLine();
 
 
 
-public struct S : IDisposable
+void Print()
 {
-    private bool dispose;
-    public void Dispose()
+    lock (locker)
     {
-        dispose = true;
-    }
-    public bool GetDispose()
-    {
-        return dispose;
+        x = 1;
+        for (int i = 1; i < 6; i++)
+        {
+            Console.WriteLine($"{Thread.CurrentThread.Name}: {x}");
+            x++;
+            Thread.Sleep(100);
+        }
     }
 }
-
 
 
 
