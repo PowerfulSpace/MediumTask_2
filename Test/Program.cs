@@ -1,39 +1,38 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿
 
-IServiceCollection services = new ServiceCollection()
-    .AddScoped<ICounter, RandomCounter>();
 
-using ServiceProvider serviceProvider = services.BuildServiceProvider();
-
-PrintCounters();
-PrintCounters();
-void PrintCounters()
+var s = new S();
+using (s)
 {
-    using IServiceScope scope = serviceProvider.CreateScope(); // контекст scope
-    var counter1 = scope.ServiceProvider.GetService<ICounter>();
-    var counter2 = scope.ServiceProvider.GetService<ICounter>();
-    Console.WriteLine($"Counter1: {counter1?.Value}; Counter2: {counter2?.Value}");
+    Console.WriteLine(s.GetDispose());
+}
+
+Console.WriteLine(s.GetDispose());
+
+
+
+Console.ReadLine();
+
+
+
+
+public struct S : IDisposable
+{
+    private bool dispose;
+    public void Dispose()
+    {
+        dispose = true;
+    }
+    public bool GetDispose()
+    {
+        return dispose;
+    }
 }
 
 
-void PrintCounters()
-{
-    var counter1 = serviceProvider.GetService<ICounter>();
-    var counter2 = serviceProvider.GetService<ICounter>();
-    Console.WriteLine($"Counter1: {counter1?.Value}; Counter2: {counter2?.Value}");
-}
 
-static interface ICounter
-{
-    int Value { get; }
-}
-static class RandomCounter : ICounter
-{
-    static Random rnd = new Random();
-    private int _value;
-    public RandomCounter() => _value = rnd.Next(0, 1000000);
-    public int Value => _value;
-}
+
+
+
 
 
