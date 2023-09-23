@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿
+using SOLID_SingleResponsibilityPrinciple.Models;
+using SOLID_SingleResponsibilityPrinciple;
+
+
+
+MobileStore store = new MobileStore(
+    new ConsolePhoneReader(), new GeneralPhoneBinder(),
+    new GeneralPhoneValidator(), new TextPhoneSaver());
+store.Process();
+
+
+Console.ReadLine();
