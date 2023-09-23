@@ -59,7 +59,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.4 Hash_MD5_SHA256", "Hash
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.5 SOLID_SingleResponsibilityPrinciple", "SOLID_SingleResponsibilityPrinciple\2.5 SOLID_SingleResponsibilityPrinciple.csproj", "{9601D8C8-8468-4B90-8072-FA9C0CA0C80F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID_OpenClosedPrinciple", "SOLID_OpenClosedPrinciple\SOLID_OpenClosedPrinciple.csproj", "{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.6 SOLID_OpenClosedPrinciple", "SOLID_OpenClosedPrinciple\2.6 SOLID_OpenClosedPrinciple.csproj", "{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID_LiskovSubstitutionPrinciple", "SOLID_LiskovSubstitutionPrinciple\SOLID_LiskovSubstitutionPrinciple.csproj", "{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -179,6 +181,10 @@ Global
 		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

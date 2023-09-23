@@ -1,61 +1,51 @@
 ﻿
 
-Rectangle rect = new Square();
-TestRectangleArea(rect);
-
+Account acc = new MicroAccount();
+CalculateInterest(acc); // получаем 1100 без бонуса 100
 
 Console.ReadLine();
 
-static void TestRectangleArea(Rectangle rect)
+static void CalculateInterest(Account account)
 {
-    rect.Height = 5;
-    rect.Width = 10;
-    if (rect.GetArea() != 50)
-        throw new Exception("Некорректная площадь!");
-}
-
-class Rectangle
-{
-    public virtual int Width { get; set; }
-    public virtual int Height { get; set; }
-
-    public int GetArea()
+    decimal sum = account.GetInterest(1000, 1, 10); // 1000 + 1000 * 10 / 100 + 100 (бонус)
+    if (sum != 1200) // ожидаем 1200
     {
-        return Width * Height;
+        throw new Exception("Неожиданная сумма при вычислениях");
     }
 }
 
-
-class Square : Rectangle
+class Account
 {
-    public override int Width
+    public virtual decimal GetInterest(decimal sum, int month, int rate)
     {
-        get
-        {
-            return base.Width;
-        }
+        // предусловие
+        if (sum < 0 || month > 12 || month < 1 || rate < 0)
+            throw new Exception("Некорректные данные");
 
-        set
-        {
-            base.Width = value;
-            base.Height = value;
-        }
-    }
+        decimal result = sum;
+        for (int i = 0; i < month; i++)
+            result += result * rate / 100;
 
-    public override int Height
-    {
-        get
-        {
-            return base.Height;
-        }
+        // постусловие
+        if (sum >= 1000)
+            result += 100; // добавляем бонус
 
-        set
-        {
-            base.Height = value;
-            base.Width = value;
-        }
+        return result;
     }
 }
 
+class MicroAccount : Account
+{
+    public override decimal GetInterest(decimal sum, int month, int rate)
+    {
+        if (sum < 0 || month > 12 || month < 1 || rate < 0)
+            throw new Exception("Некорректные данные");
 
+        decimal result = sum;
+        for (int i = 0; i < month; i++)
+            result += result * rate / 100;
+
+        return result;
+    }
+}
 
