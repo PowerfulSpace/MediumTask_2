@@ -9,24 +9,44 @@ Console.ReadLine();
 
 
 
-class Report
+class Phone
 {
-    public string Text { get; set; } = "";
-    public void GoToFirstPage() =>
-        Console.WriteLine("Переход к первой странице");
-
-    public void GoToLastPage() =>
-        Console.WriteLine("Переход к последней странице");
-
-    public void GoToPage(int pageNumber) =>
-        Console.WriteLine($"Переход к странице {pageNumber}");
-}
-//  обязанность - печать отчета
-class Printer
-{
-    public void PrintReport(Report report)
+    public string Model { get; }
+    public int Price { get; }
+    public Phone(string model, int price)
     {
-        Console.WriteLine("Печать отчета");
-        Console.WriteLine(report.Text);
+        Model = model;
+        Price = price;
+    }
+}
+
+class MobileStore
+{
+    List<Phone> phones = new();
+    public void Process()
+    {
+        // ввод данных
+        Console.WriteLine("Введите модель:");
+        string? model = Console.ReadLine();
+        Console.WriteLine("Введите цену:");
+
+        // валидация
+        bool result = int.TryParse(Console.ReadLine(), out var price);
+
+        if (result == false || price <= 0 || string.IsNullOrEmpty(model))
+        {
+            throw new Exception("Некорректно введены данные");
+        }
+        else
+        {
+            phones.Add(new Phone(model, price));
+            // сохраняем данные в файл
+            using (StreamWriter writer = new StreamWriter("store.txt", true))
+            {
+                writer.WriteLine(model);
+                writer.WriteLine(price);
+            }
+            Console.WriteLine("Данные успешно обработаны");
+        }
     }
 }
