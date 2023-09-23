@@ -57,7 +57,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.3 Working_FlyWeight_Test"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.4 Hash_MD5_SHA256", "Hash_MD5\2.4 Hash_MD5_SHA256.csproj", "{93B22E5C-8038-4D29-9CC1-FEBE06425103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.5 SOLID_SingleResponsibilityPrinciple", "SOLID_SingleResponsibilityPrinciple\2.5 SOLID_SingleResponsibilityPrinciple.csproj", "{9601D8C8-8468-4B90-8072-FA9C0CA0C80F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.5 SOLID_SingleResponsibilityPrinciple", "SOLID_SingleResponsibilityPrinciple\2.5 SOLID_SingleResponsibilityPrinciple.csproj", "{9601D8C8-8468-4B90-8072-FA9C0CA0C80F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID_OpenClosedPrinciple", "SOLID_OpenClosedPrinciple\SOLID_OpenClosedPrinciple.csproj", "{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -173,6 +175,10 @@ Global
 		{9601D8C8-8468-4B90-8072-FA9C0CA0C80F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9601D8C8-8468-4B90-8072-FA9C0CA0C80F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9601D8C8-8468-4B90-8072-FA9C0CA0C80F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
