@@ -61,7 +61,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.5 SOLID_SingleResponsibil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.6 SOLID_OpenClosedPrinciple", "SOLID_OpenClosedPrinciple\2.6 SOLID_OpenClosedPrinciple.csproj", "{0E5CA83A-5E23-4C44-AB4F-B5EC85DE0C0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID_LiskovSubstitutionPrinciple", "SOLID_LiskovSubstitutionPrinciple\SOLID_LiskovSubstitutionPrinciple.csproj", "{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.7 SOLID_LiskovSubstitutionPrinciple", "SOLID_LiskovSubstitutionPrinciple\2.7 SOLID_LiskovSubstitutionPrinciple.csproj", "{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
