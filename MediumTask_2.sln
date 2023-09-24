@@ -65,7 +65,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.7 SOLID_LiskovSubstitutio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.8 SOLID_InterfaceSegregationPrinciple", "SOLID_InterfaceSegregationPrinciple\2.8 SOLID_InterfaceSegregationPrinciple.csproj", "{E9606524-C4D1-49AF-AE39-D90D06CCE8AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID_DependencyInversionPrinciple", "SOLID_DependencyInversionPrinciple\SOLID_DependencyInversionPrinciple.csproj", "{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.9 SOLID_DependencyInversionPrinciple", "SOLID_DependencyInversionPrinciple\2.9 SOLID_DependencyInversionPrinciple.csproj", "{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
