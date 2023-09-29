@@ -1,12 +1,16 @@
 ﻿
 
+var numbers = new int[] { 10, 20, 30 };
+Console.WriteLine(GetSourceLabel(numbers));  // output: 1
 
-int i = 34;
-object iBoxed = i;
-int? jNullable = 42;
-if (iBoxed is int a && jNullable is int b)
+var letters = new List<char> { 'a', 'b', 'c', 'd' };
+Console.WriteLine(GetSourceLabel(letters));  // output: 2
+
+static int GetSourceLabel<T>(IEnumerable<T> source) => source switch
 {
-    Console.WriteLine(a + b);  // output 76
-}
+    Array array => 1,
+    ICollection<T> collection => 2,
+    _ => 3,
+};
 
 Console.ReadLine();
