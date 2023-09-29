@@ -1,16 +1,19 @@
 ﻿
 
-var numbers = new int[] { 10, 20, 30 };
-Console.WriteLine(GetSourceLabel(numbers));  // output: 1
-
-var letters = new List<char> { 'a', 'b', 'c', 'd' };
-Console.WriteLine(GetSourceLabel(letters));  // output: 2
-
-static int GetSourceLabel<T>(IEnumerable<T> source) => source switch
-{
-    Array array => 1,
-    ICollection<T> collection => 2,
-    _ => 3,
-};
 
 Console.ReadLine();
+
+public abstract class Vehicle { }
+public class Car : Vehicle { }
+public class Truck : Vehicle { }
+
+public static class TollCalculator
+{
+    public static decimal CalculateToll(this Vehicle vehicle) => vehicle switch
+    {
+        Car _ => 2.00m,
+        Truck _ => 7.50m,
+        null => throw new ArgumentNullException(nameof(vehicle)),
+        _ => throw new ArgumentException("Unknown type of a vehicle", nameof(vehicle)),
+    };
+}
