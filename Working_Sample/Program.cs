@@ -1,4 +1,5 @@
 ﻿
+Console.WriteLine();
 
 Console.WriteLine(TakeFive("Hello, world!"));  // output: Hello
 Console.WriteLine(TakeFive("Hi!"));  // output: Hi!
@@ -6,10 +7,11 @@ Console.WriteLine(TakeFive(new[] { '1', '2', '3', '4', '5', '6', '7' }));  // ou
 Console.WriteLine(TakeFive(new[] { 'a', 'b', 'c' }));  // output: abc
 
 
+
 Console.ReadLine();
 
 
-
+// Шаблон Свойств
 static string TakeFive(object input) => input switch
 {
     string { Length: >= 5 } s => s.Substring(0, 5),
