@@ -63,9 +63,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.6 SOLID_OpenClosedPrincip
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.7 SOLID_LiskovSubstitutionPrinciple", "SOLID_LiskovSubstitutionPrinciple\2.7 SOLID_LiskovSubstitutionPrinciple.csproj", "{AED33ECE-23FA-4D02-85A9-A94BA675B8FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.8 SOLID_InterfaceSegregationPrinciple", "SOLID_InterfaceSegregationPrinciple\2.8 SOLID_InterfaceSegregationPrinciple.csproj", "{E9606524-C4D1-49AF-AE39-D90D06CCE8AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.8 SOLID_InterfaceSegregationPrinciple", "SOLID_InterfaceSegregationPrinciple\2.8 SOLID_InterfaceSegregationPrinciple.csproj", "{E9606524-C4D1-49AF-AE39-D90D06CCE8AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.9 SOLID_DependencyInversionPrinciple", "SOLID_DependencyInversionPrinciple\2.9 SOLID_DependencyInversionPrinciple.csproj", "{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.9 SOLID_DependencyInversionPrinciple", "SOLID_DependencyInversionPrinciple\2.9 SOLID_DependencyInversionPrinciple.csproj", "{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_2", "Test_2\Test_2.csproj", "{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -197,12 +199,17 @@ Global
 		{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B18F8C10-0838-452D-B4D2-47F44B3B498E} = {5291D391-E267-4A4A-89A0-3263FE7D3781}
+		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52} = {5291D391-E267-4A4A-89A0-3263FE7D3781}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39EDCF86-6472-49F5-972B-5E439F84123F}
