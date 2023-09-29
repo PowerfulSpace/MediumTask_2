@@ -1,19 +1,15 @@
 ﻿
 
+Console.WriteLine(Classify(13));  // output: Too high
+Console.WriteLine(Classify(double.NaN));  // output: Unknown
+Console.WriteLine(Classify(2.4));  // output: Acceptable
 
 Console.ReadLine();
 
-public abstract class Vehicle { }
-public class Car : Vehicle { }
-public class Truck : Vehicle { }
-
-public static class TollCalculator
+static string Classify(double measurement) => measurement switch
 {
-    public static decimal CalculateToll(this Vehicle vehicle) => vehicle switch
-    {
-        Car _ => 2.00m,
-        Truck _ => 7.50m,
-        null => throw new ArgumentNullException(nameof(vehicle)),
-        _ => throw new ArgumentException("Unknown type of a vehicle", nameof(vehicle)),
-    };
-}
+    < -4.0 => "Too low",
+    > 10.0 => "Too high",
+    double.NaN => "Unknown",
+    _ => "Acceptable",
+};
