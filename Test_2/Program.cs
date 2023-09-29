@@ -1,23 +1,23 @@
 ﻿
 
-Console.WriteLine(TakeFive("Hello, world!"));  // output: Hello
-Console.WriteLine(TakeFive("Hi!"));  // output: Hi!
-Console.WriteLine(TakeFive(new[] { '1', '2', '3', '4', '5', '6', '7' }));  // output: 12345
-Console.WriteLine(TakeFive(new[] { 'a', 'b', 'c' }));  // output: abc
-
 
 Console.ReadLine();
 
 
-
-static string TakeFive(object input) => input switch
+static string Classify(Point point) => point switch
 {
-    string { Length: >= 5 } s => s.Substring(0, 5),
-    string s => s,
-
-    ICollection<char> { Count: >= 5 } symbols => new string(symbols.Take(5).ToArray()),
-    ICollection<char> symbols => new string(symbols.ToArray()),
-
-    null => throw new ArgumentNullException(nameof(input)),
-    _ => throw new ArgumentException("Not supported input type."),
+    (0, 0) => "Origin",
+    (1, 0) => "positive X basis end",
+    (0, 1) => "positive Y basis end",
+    _ => "Just a point",
 };
+
+public readonly struct Point
+{
+    public int X { get; }
+    public int Y { get; }
+
+    public Point(int x, int y) => (X, Y) = (x, y);
+
+    public void Deconstruct(out int x, out int y) => (x, y) = (X, Y);
+}
