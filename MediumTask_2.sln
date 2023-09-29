@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.9 SOLID_DependencyInversi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_2", "Test_2\Test_2.csproj", "{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.0 CalendarSeason", "CalendarSeason\3.0 CalendarSeason.csproj", "{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -203,6 +205,10 @@ Global
 		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
