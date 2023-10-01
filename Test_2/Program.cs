@@ -1,36 +1,47 @@
-﻿
-
-
-using System.Collections.Concurrent;
-
-ConcurrentQueue<int> cq = new ConcurrentQueue<int>();
-
-for (int i = 0; i < 10000; i++)
+﻿public interface IShape
 {
-    cq.Enqueue(i);
 }
 
-int result;
-if (!cq.TryPeek(out result))
+public class Circle : IShape
 {
-    Console.WriteLine("CQ: TryPeek failed when it should have succeeded");
-}
-else if (result != 0)
-{
-    Console.WriteLine("CQ: Expected TryPeek result of 0, got {0}", result);
 }
 
-int outerSum = 0;
-Action action = () =>
+public class Rectangle : IShape
 {
-    int localSum = 0;
-    int localValue;
-    while (cq.TryDequeue(out localValue)) localSum += localValue;
-    Interlocked.Add(ref outerSum, localSum);
-};
+}
 
-Parallel.Invoke(action, action, action, action);
+public class RoundedRectangle : IShape
+{
+}
 
-Console.WriteLine("outerSum = {0}, should be 49995000", outerSum);
-Console.ReadLine();
+public class IntersectionFinder
+{
+    public IShape FindIntersection(IShape shape, IShape shape2)
+    {
+        if (shape is Circle && shape2 is Rectangle)
+            return FindIntersection(shape as Circle, shape2 as Rectangle);
 
+        if (shape is Circle && shape2 is RoundedRectangle)
+            return FindIntersection(shape as Circle, shape2 as RoundedRectangle);
+
+        if (shape is RoundedRectangle && shape2 is Rectangle)
+            return FindIntersection(shape as RoundedRectangle, shape2 as Rectangle);
+
+        return FindIntersection(shape2, shape);
+    }
+
+    private IShape FindIntersection(Circle circle, Rectangle rectangle)
+    {
+        return new RoundedRectangle(); //также код мог бы вернуть Rectangle или Circle, в зависимости от их размеров. Но для простоты будем считать что метод всегда возвращает RoundedRectangle
+    }
+
+    private IShape FindIntersection(Circle circle, RoundedRectangle rounedeRectangle)
+    {
+        return new Circle();
+    }
+
+    private IShape FindIntersection(RoundedRectangle roundedRectanglerectangle, Rectangle rectangle)
+    {
+        return new Rectangle();
+    }
+}
