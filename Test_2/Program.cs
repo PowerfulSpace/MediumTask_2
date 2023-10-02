@@ -1,47 +1,24 @@
-﻿public interface IShape
-{
-}
+﻿
 
-public class Circle : IShape
-{
-}
 
-public class Rectangle : IShape
-{
-}
+DateTime date1 = new DateTime(2010, 1, 1, 8, 0, 15);
+DateTime date2 = new DateTime(2010, 8, 18, 13, 30, 30);
 
-public class RoundedRectangle : IShape
-{
-}
 
-public class IntersectionFinder
-{
-    public IShape FindIntersection(IShape shape, IShape shape2)
-    {
-        if (shape is Circle && shape2 is Rectangle)
-            return FindIntersection(shape as Circle, shape2 as Rectangle);
+TimeSpan interval = date2 - date1;
+Console.WriteLine("{0} - {1} = {2}", date2, date1, interval.ToString());
 
-        if (shape is Circle && shape2 is RoundedRectangle)
-            return FindIntersection(shape as Circle, shape2 as RoundedRectangle);
 
-        if (shape is RoundedRectangle && shape2 is Rectangle)
-            return FindIntersection(shape as RoundedRectangle, shape2 as Rectangle);
+Console.WriteLine("   {0,-35} {1,20}", "Value of Days Component:", interval.Days);
+Console.WriteLine("   {0,-35} {1,20}", "Total Number of Days:", interval.TotalDays);
+Console.WriteLine("   {0,-35} {1,20}", "Value of Hours Component:", interval.Hours);
+Console.WriteLine("   {0,-35} {1,20}", "Total Number of Hours:", interval.TotalHours);
+Console.WriteLine("   {0,-35} {1,20}", "Value of Minutes Component:", interval.Minutes);
+Console.WriteLine("   {0,-35} {1,20}", "Total Number of Minutes:", interval.TotalMinutes);
+Console.WriteLine("   {0,-35} {1,20:N0}", "Value of Seconds Component:", interval.Seconds);
+Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Seconds:", interval.TotalSeconds);
+Console.WriteLine("   {0,-35} {1,20:N0}", "Value of Milliseconds Component:", interval.Milliseconds);
+Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Milliseconds:", interval.TotalMilliseconds);
+Console.WriteLine("   {0,-35} {1,20:N0}", "Ticks:", interval.Ticks);
 
-        return FindIntersection(shape2, shape);
-    }
-
-    private IShape FindIntersection(Circle circle, Rectangle rectangle)
-    {
-        return new RoundedRectangle(); //также код мог бы вернуть Rectangle или Circle, в зависимости от их размеров. Но для простоты будем считать что метод всегда возвращает RoundedRectangle
-    }
-
-    private IShape FindIntersection(Circle circle, RoundedRectangle rounedeRectangle)
-    {
-        return new Circle();
-    }
-
-    private IShape FindIntersection(RoundedRectangle roundedRectanglerectangle, Rectangle rectangle)
-    {
-        return new Rectangle();
-    }
-}
+Console.ReadLine();
