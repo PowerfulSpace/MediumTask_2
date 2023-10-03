@@ -1,24 +1,26 @@
 ﻿
 
 
-DateTime date1 = new DateTime(2010, 1, 1, 8, 0, 15);
-DateTime date2 = new DateTime(2010, 8, 18, 13, 30, 30);
+var p1 = new NamedPoint("A", 0, 0);
+Console.WriteLine($"{nameof(p1)}: {p1}");  // output: p1: NamedPoint { Name = A, X = 0, Y = 0 }
 
+var p2 = p1 with { Name = "B", X = 5 };
+Console.WriteLine($"{nameof(p2)}: {p2}");  // output: p2: NamedPoint { Name = B, X = 5, Y = 0 }
 
-TimeSpan interval = date2 - date1;
-Console.WriteLine("{0} - {1} = {2}", date2, date1, interval.ToString());
+var p3 = p1 with
+{
+    Name = "C",
+    Y = 4
+};
+Console.WriteLine($"{nameof(p3)}: {p3}");  // output: p3: NamedPoint { Name = C, X = 0, Y = 4 }
 
+Console.WriteLine($"{nameof(p1)}: {p1}");  // output: p1: NamedPoint { Name = A, X = 0, Y = 0 }
 
-Console.WriteLine("   {0,-35} {1,20}", "Value of Days Component:", interval.Days);
-Console.WriteLine("   {0,-35} {1,20}", "Total Number of Days:", interval.TotalDays);
-Console.WriteLine("   {0,-35} {1,20}", "Value of Hours Component:", interval.Hours);
-Console.WriteLine("   {0,-35} {1,20}", "Total Number of Hours:", interval.TotalHours);
-Console.WriteLine("   {0,-35} {1,20}", "Value of Minutes Component:", interval.Minutes);
-Console.WriteLine("   {0,-35} {1,20}", "Total Number of Minutes:", interval.TotalMinutes);
-Console.WriteLine("   {0,-35} {1,20:N0}", "Value of Seconds Component:", interval.Seconds);
-Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Seconds:", interval.TotalSeconds);
-Console.WriteLine("   {0,-35} {1,20:N0}", "Value of Milliseconds Component:", interval.Milliseconds);
-Console.WriteLine("   {0,-35} {1,20:N0}", "Total Number of Milliseconds:", interval.TotalMilliseconds);
-Console.WriteLine("   {0,-35} {1,20:N0}", "Ticks:", interval.Ticks);
+var apples = new { Item = "Apples", Price = 1.19m };
+Console.WriteLine($"Original: {apples}");  // output: Original: { Item = Apples, Price = 1.19 }
+var saleApples = apples with { Price = 0.79m };
+Console.WriteLine($"Sale: {saleApples}");  // output: Sale: { Item = Apples, Price = 0.79 }
 
 Console.ReadLine();
+
+public record NamedPoint(string Name, int X, int Y);
