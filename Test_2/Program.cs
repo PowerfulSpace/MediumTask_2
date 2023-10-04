@@ -1,7 +1,7 @@
 ﻿
 
 
-var p1 = new NamedPoint("A", 0, 0);
+var p1 = new NamedPoint("A", 7, 8);
 Console.WriteLine($"{nameof(p1)}: {p1}");  // output: p1: NamedPoint { Name = A, X = 0, Y = 0 }
 
 var p2 = p1 with { Name = "B", X = 5 };
