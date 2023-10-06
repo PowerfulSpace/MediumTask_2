@@ -1,26 +1,10 @@
-﻿
-var (_, _, _, pop1, _, pop2) = QueryCityDataForYears("New York City", 1960, 2010);
+﻿Index myIndex1 = 2;     // третий элемент
+Index myIndex2 = ^2;    // предпоследний элемент
+
+string[] people = { "Tom", "Bob", "Sam", "Kate", "Alice" };
+string selected1 = people[myIndex1];    // Sam
+string selected2 = people[myIndex2];    // Kate
+Console.WriteLine(selected1);
+Console.WriteLine(selected2);
 
 Console.ReadLine();
-
-static (string, double, int, int, int, int) QueryCityDataForYears(string name, int year1, int year2)
-{
-    int population1 = 0, population2 = 0;
-    double area = 0;
-
-    if (name == "New York City")
-    {
-        area = 468.48;
-        if (year1 == 1960)
-        {
-            population1 = 7781984;
-        }
-        if (year2 == 2010)
-        {
-            population2 = 8175133;
-        }
-        return (name, area, year1, population1, year2, population2);
-    }
-
-    return ("", 0, 0, 0, 0, 0);
-}
