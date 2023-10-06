@@ -1,40 +1,26 @@
-﻿ShowFormattingCode();
-  
+﻿
+var (_, _, _, pop1, _, pop2) = QueryCityDataForYears("New York City", 1960, 2010);
 
-Console.WriteLine("---");
+Console.ReadLine();
 
-ShowParsingCode();
-
-
-void ShowFormattingCode()
+static (string, double, int, int, int, int) QueryCityDataForYears(string name, int year1, int year2)
 {
-    TimeSpan interval = new TimeSpan(12, 30, 45);
-    string output;
-    try
-    {
-        output = String.Format("{0:r}", interval);
-    }
-    catch (FormatException)
-    {
-        output = "Invalid Format";
-    }
-    Console.WriteLine(output);
-}
+    int population1 = 0, population2 = 0;
+    double area = 0;
 
-void ShowParsingCode()
-{
-    string value = "000000006";
-    try
+    if (name == "New York City")
     {
-        TimeSpan interval = TimeSpan.Parse(value);
-        Console.WriteLine("{0} --> {1}", value, interval);
+        area = 468.48;
+        if (year1 == 1960)
+        {
+            population1 = 7781984;
+        }
+        if (year2 == 2010)
+        {
+            population2 = 8175133;
+        }
+        return (name, area, year1, population1, year2, population2);
     }
-    catch (FormatException)
-    {
-        Console.WriteLine("{0}: Bad Format", value);
-    }
-    catch (OverflowException)
-    {
-        Console.WriteLine("{0}: Overflow", value);
-    }
+
+    return ("", 0, 0, 0, 0, 0);
 }
