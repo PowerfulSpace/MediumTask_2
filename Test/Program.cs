@@ -1,29 +1,43 @@
-﻿public class Example
+﻿using System.Diagnostics.CodeAnalysis;
+
+public class Person
 {
-    // Mark OldProperty As Obsolete.
-    [ObsoleteAttribute("This property is obsolete. Use NewProperty instead.", false)]
-    public static string OldProperty
-    { get { return "The old property value."; } }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
 
-    public static string NewProperty
-    { get { return "The new property value."; } }
-
-    // Mark CallOldMethod As Obsolete.
-    [ObsoleteAttribute("This method is obsolete. Call CallNewMethod instead.", true)]
-    public static string CallOldMethod()
+    public Person(string firstName, string lastName)
     {
-        return "You have called CallOldMethod.";
+        FirstName = firstName;
+        LastName = lastName;
     }
 
-    public static string CallNewMethod()
+    public Person() : this("John", "Doe") { }
+}
+
+public class Student : Person
+{
+    public string Major { get; set; }
+
+    public Student(string firstName, string lastName, string major)
+        : base(firstName, lastName)
     {
-        return "You have called CallNewMethod.";
+        SetMajor(major);
     }
 
-    public static void Main()
+    public Student(string firstName, string lastName) :
+        base(firstName, lastName)
     {
-        Console.WriteLine(OldProperty);
-        Console.WriteLine();
-        Console.WriteLine(CallOldMethod());
+        SetMajor();
+    }
+
+    public Student()
+    {
+        SetMajor();
+    }
+
+    [MemberNotNull(nameof(Major))]
+    private void SetMajor(string? major = default)
+    {
+        Major = major ?? "Undeclared";
     }
 }
