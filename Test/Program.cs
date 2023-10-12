@@ -1,16 +1,9 @@
-﻿public async IAsyncEnumerable<int> GetSetsOfNumbersAsync()
-{
-    int index = 0;
-    while (index < 10)
-        yield return index++;
+﻿Console.WriteLine(nameof(System.Collections.Generic));  // output: Generic
+Console.WriteLine(nameof(List<int>));  // output: List
+Console.WriteLine(nameof(List<int>.Count));  // output: Count
+Console.WriteLine(nameof(List<int>.Add));  // output: Add
 
-    await Task.Delay(500);
-
-    yield return 50;
-
-    await Task.Delay(500);
-
-    index = 100;
-    while (index < 110)
-        yield return index++;
-}
+var numbers = new List<int> { 1, 2, 3 };
+Console.WriteLine(nameof(numbers));  // output: numbers
+Console.WriteLine(nameof(numbers.Count));  // output: Count
+Console.WriteLine(nameof(numbers.Add));  // output: Add
