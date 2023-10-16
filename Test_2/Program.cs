@@ -1,26 +1,10 @@
 ﻿
 
 
-var p1 = new NamedPoint("A", 7, 8);
-Console.WriteLine($"{nameof(p1)}: {p1}");  // output: p1: NamedPoint { Name = A, X = 0, Y = 0 }
-
-var p2 = p1 with { Name = "B", X = 5 };
-Console.WriteLine($"{nameof(p2)}: {p2}");  // output: p2: NamedPoint { Name = B, X = 5, Y = 0 }
-
-var p3 = p1 with
-{
-    Name = "C",
-    Y = 4
-};
-Console.WriteLine($"{nameof(p3)}: {p3}");  // output: p3: NamedPoint { Name = C, X = 0, Y = 4 }
-
-Console.WriteLine($"{nameof(p1)}: {p1}");  // output: p1: NamedPoint { Name = A, X = 0, Y = 0 }
-
-var apples = new { Item = "Apples", Price = 1.19m };
-Console.WriteLine($"Original: {apples}");  // output: Original: { Item = Apples, Price = 1.19 }
-var saleApples = apples with { Price = 0.79m };
-Console.WriteLine($"Sale: {saleApples}");  // output: Sale: { Item = Apples, Price = 0.79 }
+string[] people = { "Tom", "Bob", "Sam", "Kate", "Alice" };
+string[] peopleRange1 = people[^2..];       // два последних - Kate, Alice
+string[] peopleRange2 = people[..^1];       // начиная с предпоследнего - Tom, Bob, Sam, Kate
+string[] peopleRange3 = people[^3..^1];     // два начиная с предпоследнего - Sam, Kate
 
 Console.ReadLine();
 
-public record NamedPoint(string Name, int X, int Y);
