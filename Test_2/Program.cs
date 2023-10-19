@@ -1,54 +1,42 @@
-﻿using System.Globalization;
+﻿using System.Reflection;
 
-const string dataFmt = "{0,-30}{1}";
-const string timeFmt = "{0,-30}{1:yyyy-MM-dd HH:mm}";
+Type myType = typeof(Person);
 
-Console.WriteLine(
-    "This example of selected TimeZone class " +
-    "elements generates the following \n" +
-    "output, which varies depending on the " +
-    "time zone in which it is run.\n");
+Console.WriteLine("Поля:");
+foreach (FieldInfo field in myType.GetFields(
+    BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static))
+{
+    string modificator = "";
 
-// Get the local time zone and the current local time and year.
-TimeZone localZone = TimeZone.CurrentTimeZone;
-DateTime currentDate = DateTime.Now;
-int currentYear = currentDate.Year;
+    // получаем модификатор доступа
+    if (field.IsPublic)
+        modificator += "public ";
+    else if (field.IsPrivate)
+        modificator += "private ";
+    else if (field.IsAssembly)
+        modificator += "internal ";
+    else if (field.IsFamily)
+        modificator += "protected ";
+    else if (field.IsFamilyAndAssembly)
+        modificator += "private protected ";
+    else if (field.IsFamilyOrAssembly)
+        modificator += "protected internal ";
 
-// Display the names for standard time and daylight saving 
-// time for the local time zone.
-Console.WriteLine(dataFmt, "Standard time name:",
-    localZone.StandardName);
-Console.WriteLine(dataFmt, "Daylight saving time name:",
-    localZone.DaylightName);
+    // если поле статическое
+    if (field.IsStatic) modificator += "static ";
 
-// Display the current date and time and show if they occur 
-// in daylight saving time.
-Console.WriteLine("\n" + timeFmt, "Current date and time:",
-    currentDate);
-Console.WriteLine(dataFmt, "Daylight saving time?",
-    localZone.IsDaylightSavingTime(currentDate));
+    Console.WriteLine($"{modificator}{field.FieldType.Name} {field.Name}");
+}
 
-// Get the current Coordinated Universal Time (UTC) and UTC 
-// offset.
-DateTime currentUTC =
-    localZone.ToUniversalTime(currentDate);
-TimeSpan currentOffset =
-    localZone.GetUtcOffset(currentDate);
-
-Console.WriteLine(timeFmt, "Coordinated Universal Time:",
-    currentUTC);
-Console.WriteLine(dataFmt, "UTC offset:", currentOffset);
-
-// Get the DaylightTime object for the current year.
-DaylightTime daylight =
-    localZone.GetDaylightChanges(currentYear);
-
-// Display the daylight saving time range for the current year.
-Console.WriteLine(
-    "\nDaylight saving time for year {0}:", currentYear);
-Console.WriteLine("{0:yyyy-MM-dd HH:mm} to " +
-    "{1:yyyy-MM-dd HH:mm}, delta: {2}",
-    daylight.Start, daylight.End, daylight.Delta);
-
-
-Console.ReadLine();
+class Person
+{
+    static int minAge = 0;
+    string name;
+    int age;
+    public Person(string name, int age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+    public void Print() => Console.WriteLine($"{name} - {age}");
+}
