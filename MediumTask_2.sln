@@ -67,11 +67,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.8 SOLID_InterfaceSegregat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.9 SOLID_DependencyInversionPrinciple", "SOLID_DependencyInversionPrinciple\2.9 SOLID_DependencyInversionPrinciple.csproj", "{EF9FA3A1-9258-41C6-B803-9CD7C6BE77C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_2", "Test_2\Test_2.csproj", "{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_2", "Test_2\Test_2.csproj", "{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.0 CalendarSeason", "CalendarSeason\3.0 CalendarSeason.csproj", "{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.0 CalendarSeason", "CalendarSeason\3.0 CalendarSeason.csproj", "{AD6DB0B5-AF7F-4B9A-A81A-3C6342990244}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1 Working_Sample", "Working_Sample\3.1 Working_Sample.csproj", "{703B7169-C60D-4517-A442-DBF49225F98C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1 Working_Sample", "Working_Sample\3.1 Working_Sample.csproj", "{703B7169-C60D-4517-A442-DBF49225F98C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_3", "Test_3\Test_3.csproj", "{380FF8AC-4A3A-4DF7-84FA-5F2EE5CBD957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,6 +217,10 @@ Global
 		{703B7169-C60D-4517-A442-DBF49225F98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{703B7169-C60D-4517-A442-DBF49225F98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{703B7169-C60D-4517-A442-DBF49225F98C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380FF8AC-4A3A-4DF7-84FA-5F2EE5CBD957}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380FF8AC-4A3A-4DF7-84FA-5F2EE5CBD957}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380FF8AC-4A3A-4DF7-84FA-5F2EE5CBD957}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380FF8AC-4A3A-4DF7-84FA-5F2EE5CBD957}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -222,6 +228,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B18F8C10-0838-452D-B4D2-47F44B3B498E} = {5291D391-E267-4A4A-89A0-3263FE7D3781}
 		{3A96A6D0-7B11-4CBE-B0B5-0AC85FAAEC52} = {5291D391-E267-4A4A-89A0-3263FE7D3781}
+		{380FF8AC-4A3A-4DF7-84FA-5F2EE5CBD957} = {5291D391-E267-4A4A-89A0-3263FE7D3781}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {39EDCF86-6472-49F5-972B-5E439F84123F}

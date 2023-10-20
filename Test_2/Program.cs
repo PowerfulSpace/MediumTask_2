@@ -8,6 +8,7 @@ List<int> _dataTask2 = new List<int> { 3, 13, -2, 12, 157, 14, -55, 77, 75, 13, 
 List<string> _dataTask3 = new List<string> { "ADJSLFKHJL", "FAJL", "ADJPLFKHJL", "FATL", "FD", "FAFADFSFDAFR", "FY" };
 List<string> _dataTask4 = new List<string> { "asdf", "Rew", "trafa", "nadf", "Slos", "At", "new" };
 List<int> _dataTask5 = new List<int> { -12, -33, 134, 12, 1, -3, 99, 199, 5, 17, -121, 10 };
+List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
 
 #region Task_1
 Console.WriteLine("\nЗадача_1");
@@ -29,6 +30,11 @@ Print(Task_4(_dataTask4));
 Console.WriteLine("\nЗадача_5");
 Print(Task_5(_dataTask5));
 #endregion
+#region Task_6
+Console.WriteLine("\nЗадача_6");
+Print(Task_6(_dataTask6));
+#endregion
+
 
 Console.ReadLine();
 
@@ -69,19 +75,32 @@ static List<char> Task_4(List<string> items) => items
         .Reverse()
         .ToList();
 #endregion
-
 #region Task_5
 //  5.  Дана целочисленная последовательность. Обрабатывая только положительные числа,
 //получить последовательность их последних цифр и удалить в полученной последовательности
 //все вхождения одинаковых цифр, кроме первого. Порядок полученных цифр
 //должен соответствовать порядку исходных чисел.
-static List<int> Task_5(List<int> items)
+static List<int> Task_5(List<int> items) => items
+        .Where(x => x > 0)
+        .Select(x => x % 10)
+        .Distinct()
+        .ToList();
+#endregion
+
+#region Task_6
+//  6.  Дана целочисленная последовательность A. Получить новую последовательность чисел,
+//элементы которой определяются по соответствующим элементам последовательности A
+//следующим образом: если порядковый номер элемента A делится на 3 (3, 6, …),
+//то этот элемент в новую последовательность не включается; если остаток от деления
+//порядкового номера на 3 равен 1 (1, 4, …), то в новую последовательность добавляется
+//удвоенное значение этого элемента; в противном случае (для элементов A с номерами 2, 5, …)
+//элемент добавляется в новую последовательность без изменений.
+//В полученной последовательности сохранить исходный порядок следования элементов.
+static List<int> Task_6(List<int> items)
 {
     return items;
 }
 #endregion
-
-
 
 static void Print<T>(List<T> items)
 {
