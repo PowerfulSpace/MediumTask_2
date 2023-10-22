@@ -1,20 +1,17 @@
-﻿using System.Text.Json;
-
-Person tom = new Person("Tom", 37);
-string json = JsonSerializer.Serialize(tom);
-Console.WriteLine(json);
-Person? restoredPerson = JsonSerializer.Deserialize<Person>(json);
-Console.WriteLine(restoredPerson?.Name); // Tom
+﻿using System.Diagnostics;
 
 
-Console.ReadLine();
-class Person
+
+
+var numbers = new int[] { 10, 20, 30 };
+Console.WriteLine(GetSourceLabel(numbers));  // output: 1
+
+var letters = new List<char> { 'a', 'b', 'c', 'd' };
+Console.WriteLine(GetSourceLabel(letters));  // output: 2
+
+static int GetSourceLabel<T>(IEnumerable<T> source) => source switch
 {
-    public string Name { get; }
-    public int Age { get; set; }
-    public Person(string name, int age)
-    {
-        Name = name;
-        Age = age;
-    }
-}
+    Array array => 1,
+    ICollection<T> collection => 2,
+    _ => 3,
+};
