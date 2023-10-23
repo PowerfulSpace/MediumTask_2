@@ -1,17 +1,24 @@
-﻿using System.Diagnostics;
+﻿
+
+List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+
+var quare = _dataTask6
+    .Select(x => x % 3 == 1 ? x * 2 : x)
+    .Where(x => x % 3 != 0)
+    .ToList();
 
 
-
-
-var numbers = new int[] { 10, 20, 30 };
-Console.WriteLine(GetSourceLabel(numbers));  // output: 1
-
-var letters = new List<char> { 'a', 'b', 'c', 'd' };
-Console.WriteLine(GetSourceLabel(letters));  // output: 2
-
-static int GetSourceLabel<T>(IEnumerable<T> source) => source switch
+foreach (var item in _dataTask6)
 {
-    Array array => 1,
-    ICollection<T> collection => 2,
-    _ => 3,
-};
+    Console.Write(item + " ");
+}
+Console.WriteLine();
+foreach (var item in quare)
+{
+    Console.Write(item + " ");
+}
+
+
+Console.ReadLine();
+
+

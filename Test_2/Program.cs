@@ -98,7 +98,27 @@ static List<int> Task_5(List<int> items) => items
 //В полученной последовательности сохранить исходный порядок следования элементов.
 static List<int> Task_6(List<int> items)
 {
-    return items;
+
+    var quare = from x in items
+                group x % 3 by x into newGroup
+                select newGroup;
+
+
+
+    foreach (var item in quare)
+    {
+        Console.Write("Группа " + item.Key + ": ");
+        foreach (var item2 in item)
+        {
+            Console.Write(item2 + " ");
+        }
+        
+    }
+    Console.WriteLine();
+
+    List<int> result = new List<int>();
+
+    return result;
 }
 #endregion
 

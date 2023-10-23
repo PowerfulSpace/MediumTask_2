@@ -6,6 +6,7 @@ List<int> _dataTask2 = new List<int> { -12, -33, 134, 12, 1, -3, 99, 199, 5, 17,
 List<string> _dataTask3 = new List<string> { "ADJSLFKHJL", "FAJL", "ADJPLFKHJL", "FATL", "FD", "FAFADFSFDAFR", "FY" };
 List<string> _dataTask4 = new List<string> { "asdf", "Rew", "trafa", "nadf", "Slos", "At", "new" };
 List<int> _dataTask5 = new List<int> { -12, -33, 134, 12, 1, -3, 99, 199, 5, 17, -121, 10 };
+List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
 
 List<int> result;
 
@@ -14,6 +15,7 @@ Print(Task2(_dataTask2));
 Print(Task3(_dataTask3));
 Print(Task4(_dataTask4));
 Print(Task5(_dataTask5));
+Print(Task6(_dataTask6));
 
 
 Console.ReadLine();
@@ -50,6 +52,12 @@ static List<int> Task5(List<int> data) =>
     data.Where(x => x > 0)
         .Select(x => x % 10)
         .Distinct()
+        .ToList();
+
+
+static List<int> Task6(List<int> data) =>
+    data.Select((x, i) => i % 3 == 1 ? x * 2 : x)
+        .Where((x, i) => i % 3 != 0)
         .ToList();
 
 
