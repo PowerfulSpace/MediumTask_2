@@ -7,6 +7,8 @@ List<string> _dataTask3 = new List<string> { "ADJSLFKHJL", "FAJL", "ADJPLFKHJL",
 List<string> _dataTask4 = new List<string> { "asdf", "Rew", "trafa", "nadf", "Slos", "At", "new" };
 List<int> _dataTask5 = new List<int> { -12, -33, 134, 12, 1, -3, 99, 199, 5, 17, -121, 10 };
 List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+List<int> _dataATask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
+List<int> _dataBTask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
 
 List<int> result;
 
@@ -58,6 +60,15 @@ static List<int> Task5(List<int> data) =>
 static List<int> Task6(List<int> data) =>
     data.Select((x, i) => i % 3 == 1 ? x * 2 : x)
         .Where((x, i) => i % 3 != 0)
+        .ToList();
+
+
+
+
+static List<int> Task7(List<int> dataA, List<int> dataB, int k1 = 6, int k2 = 4) =>
+    dataA.Where(x => x > k1)
+        .Concat(dataB.Where(x => x < k2))
+        .OrderBy(x => x)
         .ToList();
 
 

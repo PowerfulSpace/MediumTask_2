@@ -9,6 +9,10 @@ List<string> _dataTask3 = new List<string> { "ADJSLFKHJL", "FAJL", "ADJPLFKHJL",
 List<string> _dataTask4 = new List<string> { "asdf", "Rew", "trafa", "nadf", "Slos", "At", "new" };
 List<int> _dataTask5 = new List<int> { -12, -33, 134, 12, 1, -3, 99, 199, 5, 17, -121, 10 };
 List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+List<int> _dataATask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
+List<int> _dataBTask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
+List<int> _dataATask8 = new List<int> { 1, 43, 275 };
+List<int> _dataBTask8 = new List<int> { 1, 14, 13, 21, 5, 2, 10, 73, 555, 80 };
 
 #region Task_1
 Console.WriteLine("\nЗадача_1");
@@ -34,7 +38,14 @@ Print(Task_5(_dataTask5));
 Console.WriteLine("\nЗадача_6");
 Print(Task_6(_dataTask6));
 #endregion
-
+#region Task_7
+Console.WriteLine("\nЗадача_7");
+Print(Task_7(_dataATask7, _dataBTask7, 6, 4));
+#endregion
+#region Task_8
+Console.WriteLine("\nЗадача_8");
+Print(Task_8(_dataATask8, _dataBTask8));
+#endregion
 
 Console.ReadLine();
 
@@ -86,7 +97,6 @@ static List<int> Task_5(List<int> items) => items
         .Distinct()
         .ToList();
 #endregion
-
 #region Task_6
 //  6.  Дана целочисленная последовательность A. Получить новую последовательность чисел,
 //элементы которой определяются по соответствующим элементам последовательности A
@@ -98,29 +108,47 @@ static List<int> Task_5(List<int> items) => items
 //В полученной последовательности сохранить исходный порядок следования элементов.
 static List<int> Task_6(List<int> items)
 {
-
-    var quare = from x in items
-                group x % 3 by x into newGroup
-                select newGroup;
-
-
-
-    foreach (var item in quare)
-    {
-        Console.Write("Группа " + item.Key + ": ");
-        foreach (var item2 in item)
-        {
-            Console.Write(item2 + " ");
-        }
-        
-    }
-    Console.WriteLine();
-
-    List<int> result = new List<int>();
-
-    return result;
+    return items
+        .Select(x => x % 3 == 1 ? x * 2 : x)
+        .Where(x => x % 3 != 0)
+        .ToList();
 }
 #endregion
+
+
+
+#region Task_7
+//  7.  Даны целые числа K1 и K2 и целочисленные последовательности A и B. Получить последовательность,
+//содержащую все числа из A, большие K1, и все числа из B, меньшие K2.
+//Отсортировать полученную последовательность по возрастанию.
+static List<int> Task_7(List<int> itemsA, List<int> itemsB, int k1, int k2)
+{
+    return itemsA        
+        .Where(x => x > k1)
+        .Concat(itemsB.Where(x => x < k2))
+        .OrderBy(x => x)
+        .ToList();
+}
+#endregion
+
+#region Task_8
+//  8.  Даны последовательности положительных целых чисел A и B; все числа в каждой последовательности различны.
+//Найти последовательность всех пар чисел, удовлетворяющих следующим условиям:
+//первый элемент пары принадлежит последовательности A, второй принадлежит B,
+//и оба элемента оканчиваются одной и той же цифрой. Результирующая последовательность
+//называется внутренним объединением последовательностей A и B по ключу,
+//определяемому последними цифрами исходных чисел. Представить найденное
+//объединение в виде последовательности строк, содержащих первый и второй элементы пары,
+//разделенные дефисом, например, «49-129». Порядок следования пар должен определяться
+//исходным порядком элементов последовательности A, а для равных первых элементов – порядком
+//элементов последовательности B.
+static List<int> Task_8(List<int> itemsA, List<int> itemsB)
+{
+    return itemsA;
+}
+#endregion
+
+
 
 static void Print<T>(List<T> items)
 {

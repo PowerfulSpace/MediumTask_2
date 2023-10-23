@@ -1,24 +1,27 @@
 ﻿
-
-List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
-
-var quare = _dataTask6
-    .Select(x => x % 3 == 1 ? x * 2 : x)
-    .Where(x => x % 3 != 0)
-    .ToList();
+string[] soft = { "Microsoft", "Google", "Apple" };
+string[] hard = { "Apple", "IBM", "Samsung" };
 
 
-foreach (var item in _dataTask6)
-{
-    Console.Write(item + " ");
-}
-Console.WriteLine();
-foreach (var item in quare)
-{
-    Console.Write(item + " ");
-}
+//      разность последовательностей
+//В данном случае из массива soft убираются все элементы, которые есть в массиве hard.
+//Результатом операции будут два элемента:
+var result = soft.Except(hard);
 
+//      пересечение последовательностей
+//Так как оба набора имеют только один общий элемент, то соответственно только он и попадет в результирующую выборку:
+var result2 = soft.Intersect(hard);
+
+//      объединение последовательностей
+//Для объединения двух последовательностей используется метод Union. Его результатом является новый набор,
+//в котором имеются элементы, как из первой, так и из второй последовательности.
+//Повторяющиеся элементы добавляются в результат только один раз:
+var result3 = soft.Union(hard);
+
+//Если же нам нужно простое объединение двух наборов, то мы можем использовать метод Concat:
+var result4 = soft.Concat(hard);
+
+foreach (string s in result)
+    Console.WriteLine(s);
 
 Console.ReadLine();
-
-
