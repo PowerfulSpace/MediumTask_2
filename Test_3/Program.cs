@@ -1,9 +1,29 @@
-﻿int a = 16; // в двоичной форме 10000
-int b = 2; // в двоичной форме
-int c = a << b; // Сдвиг числа 10000 влево на 2 разряда, равно 1000000 или 64 в десятичной системе
+﻿
 
-Console.WriteLine($"Зашифрованное число: {c}");    // 64
 
-int d = a >> b; // Сдвиг числа 10000 вправо на 2 разряда, равно 100 или 4 в десятичной системе
-Console.WriteLine($"Зашифрованное число: {d}");     // 4
-Console.ReadLine();
+
+
+class Reader
+{
+    Lazy<Library> library = new Lazy<Library>();
+    public void ReadBook()
+    {
+        library.Value.GetBook();
+        Console.WriteLine("Читаем бумажную книгу");
+    }
+
+    public void ReadEbook()
+    {
+        Console.WriteLine("Читаем книгу на компьютере");
+    }
+}
+
+class Library
+{
+    private string[] books = new string[99];
+
+    public void GetBook()
+    {
+        Console.WriteLine("Выдаем книгу читателю");
+    }
+}
