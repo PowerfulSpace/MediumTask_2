@@ -3,27 +3,25 @@
 
 
 
-class Reader
-{
-    Lazy<Library> library = new Lazy<Library>();
-    public void ReadBook()
+Parallel.Invoke(
+    Print,
+    () =>
     {
-        library.Value.GetBook();
-        Console.WriteLine("Читаем бумажную книгу");
-    }
+        Console.WriteLine($"Выполняется задача {Task.CurrentId}");
+        Thread.Sleep(3000);
+    },
+    () => Square(5)
+);
 
-    public void ReadEbook()
-    {
-        Console.WriteLine("Читаем книгу на компьютере");
-    }
+void Print()
+{
+    Console.WriteLine($"Выполняется задача {Task.CurrentId}");
+    Thread.Sleep(3000);
 }
-
-class Library
+// вычисляем квадрат числа
+void Square(int n)
 {
-    private string[] books = new string[99];
-
-    public void GetBook()
-    {
-        Console.WriteLine("Выдаем книгу читателю");
-    }
+    Console.WriteLine($"Выполняется задача {Task.CurrentId}");
+    Thread.Sleep(3000);
+    Console.WriteLine($"Результат {n * n}");
 }
