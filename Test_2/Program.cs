@@ -13,6 +13,15 @@ List<int> _dataATask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
 List<int> _dataBTask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
 List<int> _dataATask8 = new List<int> { 1, 43, 275 };
 List<int> _dataBTask8 = new List<int> { 1, 14, 13, 21, 5, 2, 10, 73, 555, 80 };
+List<int> _dataATask9 = new List<int> { 1, 2, 3 };
+List<int> _dataBTask9 = new List<int> { 4, 5, 6 };
+List<Customer> _dataTask10 = new List<Customer>
+        {
+            new Customer {Id = 1, Year = 2019, Month = 10, OverallTrainingTime = 30 },
+            new Customer {Id = 2, Year = 2019, Month = 11, OverallTrainingTime = 35 },
+            new Customer {Id = 3, Year = 2019, Month = 11, OverallTrainingTime = 36 },
+            new Customer {Id = 4, Year = 2019, Month = 12, OverallTrainingTime = 30 },
+        };
 
 #region Task_1
 Console.WriteLine("\nЗадача_1");
@@ -45,6 +54,14 @@ Print(Task_7(_dataATask7, _dataBTask7, 6, 4));
 #region Task_8
 Console.WriteLine("\nЗадача_8");
 Print(Task_8(_dataATask8, _dataBTask8));
+#endregion
+#region Task_9
+Console.WriteLine("\nЗадача_9");
+Print(Task_9(_dataATask9, _dataBTask9));
+#endregion
+#region Task_10
+Console.WriteLine("\nЗадача_10");
+Print(Task_10(_dataTask10));
 #endregion
 
 Console.ReadLine();
@@ -127,7 +144,6 @@ static List<int> Task_7(List<int> itemsA, List<int> itemsB, int k1, int k2)
         .ToList();
 }
 #endregion
-
 #region Task_8
 //  8.  Даны последовательности положительных целых чисел A и B; все числа в каждой последовательности различны.
 //Найти последовательность всех пар чисел, удовлетворяющих следующим условиям:
@@ -139,9 +155,44 @@ static List<int> Task_7(List<int> itemsA, List<int> itemsB, int k1, int k2)
 //разделенные дефисом, например, «49-129». Порядок следования пар должен определяться
 //исходным порядком элементов последовательности A, а для равных первых элементов – порядком
 //элементов последовательности B.
-static List<int> Task_8(List<int> itemsA, List<int> itemsB)
+static List<string> Task_8(List<int> itemsA, List<int> itemsB)
 {
-    return itemsA;
+    return itemsA
+        .SelectMany(x => itemsB.Where(y => y % 10 == x % 10)
+            .Select(y => $"{x}-{y}")
+        )
+        .ToList();
+}
+#endregion
+#region Task_9
+//Даны целочисленные последовательности A и B. Получить последовательность всех различных сумм,
+//в которых первое слагаемое берется из A, а второе из B. Упорядочить полученную последовательность по возрастанию
+static List<int> Task_9(List<int> itemsA, List<int> itemsB)
+{
+    return itemsA
+        .SelectMany(x => itemsB.Select(y => y + x))
+        .OrderBy(x => x)
+        .ToList();
+}
+#endregion
+#region Task_10
+//Исходная последовательность содержит сведения о клиентах фитнес-центра. Каждый элемент последовательности включает
+//следующие целочисленные поля: < Код клиента >; < Год >; < Номер месяца >; < Продолжительность занятий(в часах) >;
+//Найти элемент последовательности с минимальной продолжительностью занятий. Вывести эту продолжительность,
+//а также соответствующие ей год и номер месяца (в указанном порядке на той же строке). Если имеется несколько элементов
+//с минимальной продолжительностью, то вывести данные того из них, который является последним в исходной последовательности.
+static List<string> Task_10(List<Customer> itemsA)
+{
+    List<string> a = new List<string>();
+
+    var b = itemsA
+        .Where(x => x.OverallTrainingTime == itemsA.Min(x => x.OverallTrainingTime))
+        .Select(x => $"{x.OverallTrainingTime} {x.Year} {x.Month}")
+        .Last();
+
+    a.Add(b);
+
+    return a;
 }
 #endregion
 
@@ -155,3 +206,12 @@ static void Print<T>(List<T> items)
     }
     Console.WriteLine();
 }
+
+public class Customer
+{
+    public int Id { get; set; }
+    public int Year { get; set; }
+    public int Month { get; set; }
+    public int OverallTrainingTime { get; set; }
+}
+

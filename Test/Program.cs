@@ -9,6 +9,11 @@ List<int> _dataTask5 = new List<int> { -12, -33, 134, 12, 1, -3, 99, 199, 5, 17,
 List<int> _dataTask6 = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
 List<int> _dataATask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
 List<int> _dataBTask7 = new List<int> { 1, 4, 3, 5, 7, 2, 10, 2, 5, 7 };
+List<int> _dataATask8 = new List<int> { 1, 43, 275 };
+List<int> _dataBTask8 = new List<int> { 1, 14, 13, 21, 5, 2, 10, 73, 555, 80 };
+List<int> _dataATask9 = new List<int> { 1, 2, 3 };
+List<int> _dataBTask9 = new List<int> { 4, 5, 6 };
+
 
 List<int> result;
 
@@ -18,6 +23,9 @@ Print(Task3(_dataTask3));
 Print(Task4(_dataTask4));
 Print(Task5(_dataTask5));
 Print(Task6(_dataTask6));
+Print(Task7(_dataATask7,_dataBTask7));
+Print(Task8(_dataATask8, _dataBTask8));
+Print(Task9(_dataATask9, _dataBTask9));
 
 
 Console.ReadLine();
@@ -73,6 +81,40 @@ static List<int> Task7(List<int> dataA, List<int> dataB, int k1 = 6, int k2 = 4)
 
 
 
+
+
+static List<string> Task8(List<int> dataA, List<int> dataB) =>
+    dataA.SelectMany(x =>
+        dataB.Where(y => y % 10 == x % 10)
+            .Select(y => $"{x}-{y}")
+        )
+        .ToList();
+
+
+
+
+static List<int> Task9(List<int> dataA, List<int> dataB) =>
+    dataA.SelectMany(x => dataB.Select(y => x + y))
+    .OrderBy(x => x)
+    .ToList();
+
+
+
+
+List<Customer> _dataTask10 = new List<Customer>
+        {
+            new Customer {Id = 1, Year = 2019, Month = 10, OverallTrainingTime = 30 },
+            new Customer {Id = 2, Year = 2019, Month = 11, OverallTrainingTime = 35 },
+            new Customer {Id = 3, Year = 2019, Month = 11, OverallTrainingTime = 36 },
+            new Customer {Id = 4, Year = 2019, Month = 12, OverallTrainingTime = 30 },
+        };
+
+static string Task10(List<Customer> data) =>
+    data.Where(x => x.OverallTrainingTime == data.Min(y => y.OverallTrainingTime))
+        .Select(x => $"{x.OverallTrainingTime} {x.Year} {x.Month}")
+        .Last();
+
+
 static void Print<T>(List<T> data)
 {
     foreach (var item in data)
@@ -80,4 +122,13 @@ static void Print<T>(List<T> data)
         Console.Write(item + " ");
     }
     Console.WriteLine();
+}
+
+
+class Customer
+{
+    public int Id { get; set; }
+    public int Year { get; set; }
+    public int Month { get; set; }
+    public int OverallTrainingTime { get; set; }
 }
