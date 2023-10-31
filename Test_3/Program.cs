@@ -1,27 +1,30 @@
-﻿
+﻿public class SomeClass : IDisposable
+{
+    private bool disposed = false;
 
-
-
-
-Parallel.Invoke(
-    Print,
-    () =>
+    // реализация интерфейса IDisposable.
+    public void Dispose()
     {
-        Console.WriteLine($"Выполняется задача {Task.CurrentId}");
-        Thread.Sleep(3000);
-    },
-    () => Square(5)
-);
+        // освобождаем неуправляемые ресурсы
+        Dispose(true);
+        // подавляем финализацию
+        GC.SuppressFinalize(this);
+    }
 
-void Print()
-{
-    Console.WriteLine($"Выполняется задача {Task.CurrentId}");
-    Thread.Sleep(3000);
-}
-// вычисляем квадрат числа
-void Square(int n)
-{
-    Console.WriteLine($"Выполняется задача {Task.CurrentId}");
-    Thread.Sleep(3000);
-    Console.WriteLine($"Результат {n * n}");
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposed) return;
+        if (disposing)
+        {
+            // Освобождаем управляемые ресурсы
+        }
+        // освобождаем неуправляемые объекты
+        disposed = true;
+    }
+
+    // Деструктор
+    ~SomeClass()
+    {
+        Dispose(false);
+    }
 }
