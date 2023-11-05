@@ -5,13 +5,13 @@ class Program
 
     static void Main()
     {
-        Console.WriteLine("Первичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
+        //Console.WriteLine("Первичный поток: Id {0}", Thread.CurrentThread.ManagedThreadId);
 
-        var myDelegate = new Func<int, int, int>(Method);
+        //var myDelegate = new Func<int, int, int>(Method);
 
-        myDelegate.BeginInvoke(1, 2, CallBack, "a + b = {0}");
+        //myDelegate.BeginInvoke(1, 2, CallBack, "a + b = {0}");
 
-        Console.WriteLine("Первичный поток завершил работу.");
+        //Console.WriteLine("Первичный поток завершил работу.");
 
         Console.ReadKey();
     }
@@ -24,15 +24,15 @@ class Program
         return a + b;
     }
 
-    static void CallBack(IAsyncResult iAsyncResult)
-    {
-        var asyncResult = iAsyncResult as AsyncResult;
-        var caller = (Func<int, int, int>)asyncResult.AsyncDelegate;
+    //static void CallBack(IAsyncResult iAsyncResult)
+    //{
+    //    var asyncResult = iAsyncResult as AsyncResult;
+    //    var caller = (Func<int, int, int>)asyncResult.AsyncDelegate;
 
-        int sum = caller.EndInvoke(iAsyncResult);
+    //    int sum = caller.EndInvoke(iAsyncResult);
 
-        string result = string.Format(iAsyncResult.AsyncState.ToString(), sum);
-        Console.WriteLine("Результат асинхронной операции: " + result);
-    }
+    //    string result = string.Format(iAsyncResult.AsyncState.ToString(), sum);
+    //    Console.WriteLine("Результат асинхронной операции: " + result);
+    //}
 
 }
